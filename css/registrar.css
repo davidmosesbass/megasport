@@ -1,0 +1,12 @@
+body{
+    background: forestgreen;
+    background: linear-gradient(to right, #0549E0, #07a086);
+}
+.bg2{
+    background-image: url(../img/bg-3.jpg);
+    background-size: cover;
+}
+.fab{
+    font-size: 32px;
+    font-weight: 600;
+}

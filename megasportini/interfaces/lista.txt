@@ -1,0 +1,28 @@
+ El volumen de la unidad C no tiene etiqueta.
+ El n£mero de serie del volumen es: F68D-AEB1
+
+ Directorio de C:\xampp\htdocs\allcontrol\interfaces
+
+18/09/2021  07:07 p. m.    <DIR>          .
+18/09/2021  07:07 p. m.    <DIR>          ..
+15/09/2021  11:02 p. m.               248 ALLCONT_CIUDAD.csv
+15/09/2021  11:01 p. m.             2.597 ALLCONT_CLIENTE.csv
+15/09/2021  11:03 p. m.               137 ALLCONT_CODIGOPOSTAL.csv
+15/09/2021  11:05 p. m.               174 ALLCONT_DASHBOARDXUSR.csv
+15/09/2021  11:04 p. m.             1.129 ALLCONT_DETALLEPEDXCLI.csv
+15/09/2021  11:06 p. m.               414 ALLCONT_DETALLEPEDXCOMP.csv
+15/09/2021  11:07 p. m.               333 ALLCONT_ENTIDAD.csv
+15/09/2021  11:08 p. m.               650 ALLCONT_ESTADO.csv
+16/09/2021  12:06 a. m.             6.048 ALLCONT_FACTURA.csv
+16/09/2021  12:06 a. m.                56 ALLCONT_PAIS.csv
+16/09/2021  12:07 a. m.               896 ALLCONT_PEDIDOSDECOMPRA.csv
+16/09/2021  12:07 a. m.               726 ALLCONT_PEDIDOSXCLIENTE.csv
+16/09/2021  12:08 a. m.               144 ALLCONT_PERFILROL.csv
+16/09/2021  12:09 a. m.               789 ALLCONT_PRODUCTO.csv
+16/09/2021  12:09 a. m.             1.752 ALLCONT_PROVEEDOR.csv
+16/09/2021  12:10 a. m.               142 ALLCONT_TIPOTRANSACCION.csv
+16/09/2021  12:10 a. m.               798 ALLCONT_TRANSACCIONDEINV.csv
+16/09/2021  12:11 a. m.               350 ALLCONT_USUARIO.csv
+18/09/2021  07:07 p. m.                 0 lista.txt
+              19 archivos         17.383 bytes
+               2 dirs  79.853.441.024 bytes libres

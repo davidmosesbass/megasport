@@ -1,0 +1,40 @@
+CIUDAD = 0;
+CLIENTE = 0;
+CODIGOPOSTAL = 0;
+DASHBOARDXUSR = 0;
+DETALLEPEDXCLI = 0;
+DETALLEPEDXCOMP = 0;
+ENTIDAD = 0;
+ESTADO = 0;
+FACTURA = 0;
+PAIS = 0;
+PEDIDOSDECOMPRA = 0;
+PEDIDOSXCLIENTE = 0;
+PERFILROL = 0;
+PRODUCTO = 0;
+PROVEEDOR = 0;
+TIPOTRANSACCION = 0;
+TRANSACCIONDEINV = 0;
+USUARIO = 0;
+
+
+ciudad;cliente;codigopostal;dashboardxusr;detallepedxcli;detallepedxcomp;entidad;estado;factura;pais;pedidosdecompra;pedidosxcliente;perfilrol;producto;proveedor;tipotransaccion;transacciondeinv;usuario
+
+$E_ENTIDAD = 0;
+$E_CIUDAD = 0;
+$E_CLIENTE = 0;
+$E_CODIGOPOSTAL = 0;
+$E_DASHBOARDXUSR = 0;
+$E_DETALLEPEDXCLI = 0;
+$E_DETALLEPEDXCOMP = 0;
+$E_ESTADO = 0;
+$E_FACTURA = 0;
+$E_PAIS = 0;
+$E_PEDIDOSDECOMPRA = 0;
+$E_PEDIDOSXCLIENTE = 0;
+$E_PERFILROL = 0;
+$E_PRODUCTO = 0;
+$E_PROVEEDOR = 0;
+$E_TIPOTRANSACCION = 0;
+$E_TRANSACCIONDEINV = 0;
+$E_USUARIO = 0;

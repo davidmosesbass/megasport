@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.navbar-brand{
+    font-size: 2rem;
+    color: black;
+    font-family: 'Luckiest Guy', cursive;
+    
+}
+.navbar-brand:hover{
+    color: #3C7FEB;
+}
+.nav-link{
+    margin-right: 10px;
+    margin-left: 10px;
+    color: black;
+    text-transform: uppercase;
+}
+
+.nav-link:hover{
+    color:#EB6854;
+}
+.search{
+    height: 40px;
+    width: 70%;
+    border-radius: 60px;
+    outline: none;
+    margin-right: -35px;
+    border: 2px solid #3C7FEB;
+}
+.btn0{
+    height: 40px;
+    width: 40px;
+    outline: none;
+    border: none;
+    background: #3C7FEB;
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.main{
+    background: url(../img/bg-1.jpg) no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    margin-top: -50px;
+}
+.div-main{
+    padding-top: 0% !important;
+}
+.anuncio-p{
+    margin-left: -60px;
+}
+.main h1{
+    font-size: 4rem;
+    font-weight: 700;
+}
+.btn1{
+    height: 45px;
+    width: 35%;
+    border: none;
+    outline: none;
+    background: #B8EB26;
+    font-weight: 700;
+    border-radius: 60px;
+}
+
+.btn1:hover{
+    background: #EB6854;
+}
+
+.icon1{
+    font-size: 1.5rem;
+    color: #EB6854;
+}
+
+.btn-toggler{
+    color: black;
+}
+.asd{
+    
+    height: 50vh; 
+}
+
+
