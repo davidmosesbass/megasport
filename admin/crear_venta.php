@@ -8,6 +8,7 @@
     }
 ?>
 <head>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Administracion | MegaSport</title>

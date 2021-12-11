@@ -302,7 +302,7 @@
           var end = moveOver(pos, str, true);
           var a = posMax(top, pos), b = posMin(bot, end);
           if (!posEq(a, b))
-            marks.push(editor.markText(a, b, {className: cls}));
+            marks.push(editor.markText(a, b, {class: cls}));
           pos = end;
         }
       }
@@ -480,7 +480,7 @@
       above = false;
     }
     var elt = document.createElement("div");
-    elt.className = "CodeMirror-merge-spacer";
+    elt.class = "CodeMirror-merge-spacer";
     elt.style.height = size + "px"; elt.style.minWidth = "1px";
     return cm.addLineWidget(line, elt, {height: size, above: above, mergeSpacer: true, handleMouseEvents: true});
   }
@@ -565,7 +565,7 @@
       wrap.push(rightPane);
     }
 
-    (hasRight ? rightPane : editPane).className += " CodeMirror-merge-pane-rightmost";
+    (hasRight ? rightPane : editPane).class += " CodeMirror-merge-pane-rightmost";
 
     wrap.push(elt("div", null, null, "height: 0; clear: both;"));
 
@@ -607,7 +607,7 @@
       CodeMirror.on(dv.copyButtons, "click", function(e) {
         var node = e.target || e.srcElement;
         if (!node.chunk) return;
-        if (node.className == "CodeMirror-merge-copy-reverse") {
+        if (node.class == "CodeMirror-merge-copy-reverse") {
           copyChunk(dv, dv.orig, dv.edit, node.chunk);
           return;
         }
@@ -731,7 +731,7 @@
   function collapseSingle(cm, from, to) {
     cm.addLineClass(from, "wrap", "CodeMirror-merge-collapsed-line");
     var widget = document.createElement("span");
-    widget.className = "CodeMirror-merge-collapsed-widget";
+    widget.class = "CodeMirror-merge-collapsed-widget";
     widget.title = cm.phrase("Identical text collapsed. Click to expand.");
     var mark = cm.markText(Pos(from, 0), Pos(to - 1), {
       inclusiveLeft: true,
@@ -798,9 +798,9 @@
 
   // General utilities
 
-  function elt(tag, content, className, style) {
+  function elt(tag, content, class, style) {
     var e = document.createElement(tag);
-    if (className) e.className = className;
+    if (class) e.class = class;
     if (style) e.style.cssText = style;
     if (typeof content == "string") e.appendChild(document.createTextNode(content));
     else if (content) for (var i = 0; i < content.length; ++i) e.appendChild(content[i]);

@@ -58,7 +58,7 @@ var DateTimePicker = function ($, moment) {
       Selector = {
     DATA_TOGGLE: "[data-toggle=\"" + DATA_KEY + "\"]"
   },
-      ClassName = {
+      class = {
     INPUT: NAME + "-input"
   },
       Event = {
@@ -1993,9 +1993,9 @@ var DateTimePicker = function ($, moment) {
         Default = value;
       }
     }, {
-      key: "ClassName",
+      key: "class",
       get: function get() {
-        return ClassName;
+        return class;
       }
     }]);
 
@@ -3440,7 +3440,7 @@ var TempusDominusBootstrap4 = function ($) {
     }
 
     TempusDominusBootstrap4._jQueryInterface.call($target, 'toggle');
-  }).on(DateTimePicker.Event.CHANGE, "." + DateTimePicker.ClassName.INPUT, function (event) {
+  }).on(DateTimePicker.Event.CHANGE, "." + DateTimePicker.class.INPUT, function (event) {
     var $target = getSelectorFromElement($(this));
 
     if ($target.length === 0 || event.isInit) {
@@ -3448,7 +3448,7 @@ var TempusDominusBootstrap4 = function ($) {
     }
 
     TempusDominusBootstrap4._jQueryInterface.call($target, '_change', event);
-  }).on(DateTimePicker.Event.BLUR, "." + DateTimePicker.ClassName.INPUT, function (event) {
+  }).on(DateTimePicker.Event.BLUR, "." + DateTimePicker.class.INPUT, function (event) {
     var $target = getSelectorFromElement($(this)),
         config = $target.data(DateTimePicker.DATA_KEY);
 
@@ -3461,7 +3461,7 @@ var TempusDominusBootstrap4 = function ($) {
     }
 
     TempusDominusBootstrap4._jQueryInterface.call($target, 'hide', event);
-  }).on(DateTimePicker.Event.KEYDOWN, "." + DateTimePicker.ClassName.INPUT, function (event) {
+  }).on(DateTimePicker.Event.KEYDOWN, "." + DateTimePicker.class.INPUT, function (event) {
     var $target = getSelectorFromElement($(this));
 
     if ($target.length === 0) {
@@ -3469,7 +3469,7 @@ var TempusDominusBootstrap4 = function ($) {
     }
 
     TempusDominusBootstrap4._jQueryInterface.call($target, '_keydown', event);
-  }).on(DateTimePicker.Event.KEYUP, "." + DateTimePicker.ClassName.INPUT, function (event) {
+  }).on(DateTimePicker.Event.KEYUP, "." + DateTimePicker.class.INPUT, function (event) {
     var $target = getSelectorFromElement($(this));
 
     if ($target.length === 0) {
@@ -3477,7 +3477,7 @@ var TempusDominusBootstrap4 = function ($) {
     }
 
     TempusDominusBootstrap4._jQueryInterface.call($target, '_keyup', event);
-  }).on(DateTimePicker.Event.FOCUS, "." + DateTimePicker.ClassName.INPUT, function (event) {
+  }).on(DateTimePicker.Event.FOCUS, "." + DateTimePicker.class.INPUT, function (event) {
     var $target = getSelectorFromElement($(this)),
         config = $target.data(DateTimePicker.DATA_KEY);
 

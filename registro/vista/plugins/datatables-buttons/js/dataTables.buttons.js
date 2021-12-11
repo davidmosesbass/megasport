@@ -119,7 +119,7 @@ var Buttons = function( dt, config )
 
 	this.dom = {
 		container: $('<'+this.c.dom.container.tag+'/>')
-			.addClass( this.c.dom.container.className )
+			.addClass( this.c.dom.container.class )
 	};
 
 	this._constructor();
@@ -601,7 +601,7 @@ $.extend( Buttons.prototype, {
 		var tag = config.tag || buttonDom.tag;
 		var clickBlurs = config.clickBlurs === undefined ? true : config.clickBlurs
 		var button = $('<'+tag+'/>')
-			.addClass( buttonDom.className )
+			.addClass( buttonDom.class )
 			.attr( 'tabindex', this.s.dt.settings()[0].iTabIndex )
 			.attr( 'aria-controls', this.s.dt.table().node().id )
 			.on( 'click.dtb', function (e) {
@@ -635,7 +635,7 @@ $.extend( Buttons.prototype, {
 		if ( linerDom.tag ) {
 			var liner = $('<'+linerDom.tag+'/>')
 				.html( text( config.text ) )
-				.addClass( linerDom.className );
+				.addClass( linerDom.class );
 
 			if ( linerDom.tag.toLowerCase() === 'a' ) {
 				liner.attr( 'href', '#' );
@@ -651,8 +651,8 @@ $.extend( Buttons.prototype, {
 			button.addClass( buttonDom.disabled );
 		}
 
-		if ( config.className ) {
-			button.addClass( config.className );
+		if ( config.class ) {
+			button.addClass( config.class );
 		}
 
 		if ( config.titleAttr ) {
@@ -671,7 +671,7 @@ $.extend( Buttons.prototype, {
 		var inserter;
 		if ( buttonContainer && buttonContainer.tag ) {
 			inserter = $('<'+buttonContainer.tag+'/>')
-				.addClass( buttonContainer.className )
+				.addClass( buttonContainer.class )
 				.append( button );
 		}
 		else {
@@ -907,15 +907,15 @@ $.extend( Buttons.prototype, {
 			}
 
 			// Stash the current class name
-			var originalClassName = objArray.className;
+			var originalclass = objArray.class;
 
 			conf = $.extend( {}, objArray, conf );
 
 			// The extend will have overwritten the original class name if the
 			// `conf` object also assigned a class, but we want to concatenate
 			// them so they are list that is combined from all extended buttons
-			if ( originalClassName && conf.className !== originalClassName ) {
-				conf.className = originalClassName+' '+conf.className;
+			if ( originalclass && conf.class !== originalclass ) {
+				conf.class = originalclass+' '+conf.class;
 			}
 
 			// Buttons to be added to a collection  -gives the ability to define
@@ -968,13 +968,13 @@ $.extend( Buttons.prototype, {
 			align: 'button-left', // button-right, dt-container
 			autoClose: false,
 			background: true,
-			backgroundClassName: 'dt-button-background',
-			contentClassName: buttonsSettings.dom.collection.className,
+			backgroundclass: 'dt-button-background',
+			contentclass: buttonsSettings.dom.collection.class,
 			collectionLayout: '',
 			collectionTitle: '',
 			dropup: false,
 			fade: 400,
-			rightAlignClassName: 'dt-button-right',
+			rightAlignclass: 'dt-button-right',
 			tag: buttonsSettings.dom.collection.tag
 		}, inOpts );
 		var hostNode = hostButton.node();
@@ -992,7 +992,7 @@ $.extend( Buttons.prototype, {
 				.attr('aria-expanded', 'false');
 
 			$('div.dt-button-background').off( 'click.dtb-collection' );
-			Buttons.background( false, options.backgroundClassName, options.fade, hostNode );
+			Buttons.background( false, options.backgroundclass, options.fade, hostNode );
 
 			$('body').off( '.dtb-collection' );
 			dt.off( 'buttons-action.b-internal' );
@@ -1015,7 +1015,7 @@ $.extend( Buttons.prototype, {
 			.css('display', 'none');
 
 		content = $(content)
-			.addClass(options.contentClassName)
+			.addClass(options.contentclass)
 			.attr('role', 'menu')
 			.appendTo(display);
 
@@ -1044,8 +1044,8 @@ $.extend( Buttons.prototype, {
 		if (
 			position === 'absolute' &&
 			(
-				display.hasClass( options.rightAlignClassName ) ||
-				display.hasClass( options.leftAlignClassName ) ||
+				display.hasClass( options.rightAlignclass ) ||
+				display.hasClass( options.leftAlignclass ) ||
 				options.align === 'dt-container'
 			)
 		) {
@@ -1096,7 +1096,7 @@ $.extend( Buttons.prototype, {
 			//  side of the button - check to see if the left of the popover is inside the table container.
 			// If not, move the popover so it is, but not more than it means that the popover is to the right of the table container
 			var popoverShuffle = 0;
-			if ( display.hasClass( options.rightAlignClassName )) {
+			if ( display.hasClass( options.rightAlignclass )) {
 				popoverShuffle = buttonsRight - popoverRight;
 				if(tableLeft > (popoverLeft + popoverShuffle)){
 					var leftGap = tableLeft - (popoverLeft + popoverShuffle);
@@ -1187,7 +1187,7 @@ $.extend( Buttons.prototype, {
 		}
 
 		if ( options.background ) {
-			Buttons.background( true, options.backgroundClassName, options.fade, hostNode );
+			Buttons.background( true, options.backgroundclass, options.fade, hostNode );
 		}
 
 		// This is bonkers, but if we don't have a click listener on the
@@ -1240,7 +1240,7 @@ $.extend( Buttons.prototype, {
  * @param  {string} Class to assign to the background
  * @static
  */
-Buttons.background = function ( show, className, fade, insertPoint ) {
+Buttons.background = function ( show, class, fade, insertPoint ) {
 	if ( fade === undefined ) {
 		fade = 400;
 	}
@@ -1251,7 +1251,7 @@ Buttons.background = function ( show, className, fade, insertPoint ) {
 	if ( show ) {
 		_fadeIn(
 			$('<div/>')
-				.addClass( className )
+				.addClass( class )
 				.css( 'display', 'none' )
 				.insertAfter( insertPoint ),
 			fade
@@ -1259,11 +1259,11 @@ Buttons.background = function ( show, className, fade, insertPoint ) {
 	}
 	else {
 		_fadeOut(
-			$('div.'+className),
+			$('div.'+class),
 			fade,
 			function () {
 				$(this)
-					.removeClass( className )
+					.removeClass( class )
 					.remove();
 			}
 		);
@@ -1513,21 +1513,21 @@ Buttons.defaults = {
 	dom: {
 		container: {
 			tag: 'div',
-			className: 'dt-buttons'
+			class: 'dt-buttons'
 		},
 		collection: {
 			tag: 'div',
-			className: ''
+			class: ''
 		},
 		button: {
 			tag: 'button',
-			className: 'dt-button',
+			class: 'dt-button',
 			active: 'active',
 			disabled: 'disabled'
 		},
 		buttonLiner: {
 			tag: 'span',
-			className: ''
+			class: ''
 		}
 	}
 };
@@ -1545,7 +1545,7 @@ $.extend( _dtButtons, {
 		text: function ( dt ) {
 			return dt.i18n( 'buttons.collection', 'Collection' );
 		},
-		className: 'buttons-collection',
+		class: 'buttons-collection',
 		init: function ( dt, button, config ) {
 			button.attr( 'aria-expanded', false );
 		},
@@ -1619,12 +1619,12 @@ $.extend( _dtButtons, {
 		return {
 			extend: 'collection',
 			text: text,
-			className: 'buttons-page-length',
+			class: 'buttons-page-length',
 			autoClose: true,
 			buttons: $.map( vals, function ( val, i ) {
 				return {
 					text: lang[i],
-					className: 'button-page-length',
+					class: 'button-page-length',
 					action: function ( e, dt ) {
 						dt.page.len( val ).draw();
 					},

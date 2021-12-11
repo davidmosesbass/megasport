@@ -71,7 +71,7 @@ DataTable.select.init = function ( dt ) {
 	var toggleable = true;
 	var info = true;
 	var selector = 'td, th';
-	var className = 'selected';
+	var class = 'selected';
 	var setStyle = false;
 
 	ctx._select = {};
@@ -115,8 +115,8 @@ DataTable.select.init = function ( dt ) {
 			selector = opts.selector;
 		}
 
-		if ( opts.className !== undefined ) {
-			className = opts.className;
+		if ( opts.class !== undefined ) {
+			class = opts.class;
 		}
 	}
 
@@ -126,16 +126,16 @@ DataTable.select.init = function ( dt ) {
 	dt.select.blurable( blurable );
 	dt.select.toggleable( toggleable );
 	dt.select.info( info );
-	ctx._select.className = className;
+	ctx._select.class = class;
 
 
 	// Sort table based on selected rows. Requires Select Datatables extension
 	$.fn.dataTable.ext.order['select-checkbox'] = function ( settings, col ) {
 		return this.api().column( col, {order: 'index'} ).nodes().map( function ( td ) {
 			if ( settings._select.items === 'row' ) {
-				return $( td ).parent().hasClass( settings._select.className );
+				return $( td ).parent().hasClass( settings._select.class );
 			} else if ( settings._select.items === 'cell' ) {
-				return $( td ).hasClass( settings._select.className );
+				return $( td ).hasClass( settings._select.class );
 			}
 			return false;
 		});
@@ -544,14 +544,14 @@ function init ( ctx ) {
 
 			// Row
 			if ( d._select_selected ) {
-				$( row ).addClass( ctx._select.className );
+				$( row ).addClass( ctx._select.class );
 			}
 
 			// Cells and columns - if separated out, we would need to do two
 			// loops, so it makes sense to combine them into a single one
 			for ( i=0, ien=ctx.aoColumns.length ; i<ien ; i++ ) {
 				if ( ctx.aoColumns[i]._select_selected || (d._selected_cells && d._selected_cells[i]) ) {
-					$(d.anCells[i]).addClass( ctx._select.className );
+					$(d.anCells[i]).addClass( ctx._select.class );
 				}
 			}
 		},
@@ -921,7 +921,7 @@ apiRegisterPlural( 'rows().select()', 'row().select()', function ( select ) {
 		clear( ctx );
 
 		ctx.aoData[ idx ]._select_selected = true;
-		$( ctx.aoData[ idx ].nTr ).addClass( ctx._select.className );
+		$( ctx.aoData[ idx ].nTr ).addClass( ctx._select.class );
 	} );
 
 	this.iterator( 'table', function ( ctx, i ) {
@@ -945,10 +945,10 @@ apiRegisterPlural( 'columns().select()', 'column().select()', function ( select 
 
 		var column = new DataTable.Api( ctx ).column( idx );
 
-		$( column.header() ).addClass( ctx._select.className );
-		$( column.footer() ).addClass( ctx._select.className );
+		$( column.header() ).addClass( ctx._select.class );
+		$( column.footer() ).addClass( ctx._select.class );
 
-		column.nodes().to$().addClass( ctx._select.className );
+		column.nodes().to$().addClass( ctx._select.class );
 	} );
 
 	this.iterator( 'table', function ( ctx, i ) {
@@ -977,7 +977,7 @@ apiRegisterPlural( 'cells().select()', 'cell().select()', function ( select ) {
 		data._selected_cells[ colIdx ] = true;
 
 		if ( data.anCells ) {
-			$( data.anCells[ colIdx ] ).addClass( ctx._select.className );
+			$( data.anCells[ colIdx ] ).addClass( ctx._select.class );
 		}
 	} );
 
@@ -995,7 +995,7 @@ apiRegisterPlural( 'rows().deselect()', 'row().deselect()', function () {
 	this.iterator( 'row', function ( ctx, idx ) {
 		ctx.aoData[ idx ]._select_selected = false;
 		ctx._select_lastCell = null;
-		$( ctx.aoData[ idx ].nTr ).removeClass( ctx._select.className );
+		$( ctx.aoData[ idx ].nTr ).removeClass( ctx._select.class );
 	} );
 
 	this.iterator( 'table', function ( ctx, i ) {
@@ -1014,8 +1014,8 @@ apiRegisterPlural( 'columns().deselect()', 'column().deselect()', function () {
 		var api = new DataTable.Api( ctx );
 		var column = api.column( idx );
 
-		$( column.header() ).removeClass( ctx._select.className );
-		$( column.footer() ).removeClass( ctx._select.className );
+		$( column.header() ).removeClass( ctx._select.class );
+		$( column.footer() ).removeClass( ctx._select.class );
 
 		// Need to loop over each cell, rather than just using
 		// `column().nodes()` as cells which are individually selected should
@@ -1025,7 +1025,7 @@ apiRegisterPlural( 'columns().deselect()', 'column().deselect()', function () {
 			var cellSelected = data._selected_cells;
 
 			if ( data.anCells && (! cellSelected || ! cellSelected[ cellIdx.column ]) ) {
-				$( data.anCells[ cellIdx.column  ] ).removeClass( ctx._select.className );
+				$( data.anCells[ cellIdx.column  ] ).removeClass( ctx._select.class );
 			}
 		} );
 	} );
@@ -1049,7 +1049,7 @@ apiRegisterPlural( 'cells().deselect()', 'cell().deselect()', function () {
 		// selected, in which case the class should remain (since it is selected
 		// in the column)
 		if ( data.anCells && ! ctx.aoColumns[ colIdx ]._select_selected ) {
-			$( data.anCells[ colIdx ] ).removeClass( ctx._select.className );
+			$( data.anCells[ colIdx ] ).removeClass( ctx._select.class );
 		}
 	} );
 
@@ -1099,7 +1099,7 @@ var _buttonNamespace = 0;
 $.extend( DataTable.ext.buttons, {
 	selected: {
 		text: i18n( 'selected', 'Selected' ),
-		className: 'buttons-selected',
+		class: 'buttons-selected',
 		limitTo: [ 'rows', 'columns', 'cells' ],
 		init: function ( dt, node, config ) {
 			var that = this;
@@ -1119,7 +1119,7 @@ $.extend( DataTable.ext.buttons, {
 	},
 	selectedSingle: {
 		text: i18n( 'selectedSingle', 'Selected single' ),
-		className: 'buttons-selected-single',
+		class: 'buttons-selected-single',
 		init: function ( dt, node, config ) {
 			var that = this;
 			config._eventNamespace = '.select'+(_buttonNamespace++);
@@ -1140,7 +1140,7 @@ $.extend( DataTable.ext.buttons, {
 	},
 	selectAll: {
 		text: i18n( 'selectAll', 'Select all' ),
-		className: 'buttons-select-all',
+		class: 'buttons-select-all',
 		action: function () {
 			var items = this.select.items();
 			this[ items+'s' ]().select();
@@ -1148,7 +1148,7 @@ $.extend( DataTable.ext.buttons, {
 	},
 	selectNone: {
 		text: i18n( 'selectNone', 'Deselect all' ),
-		className: 'buttons-select-none',
+		class: 'buttons-select-none',
 		action: function () {
 			clear( this.settings()[0], true );
 		},
@@ -1177,7 +1177,7 @@ $.each( [ 'Row', 'Column', 'Cell' ], function ( i, item ) {
 
 	DataTable.ext.buttons[ 'select'+item+'s' ] = {
 		text: i18n( 'select'+item+'s', 'Select '+lc+'s' ),
-		className: 'buttons-select-'+lc+'s',
+		class: 'buttons-select-'+lc+'s',
 		action: function () {
 			this.select.items( lc );
 		},

@@ -24,7 +24,7 @@
       CodeMirror.off(cm.getInputField(), "compositionupdate", cm.state.placeholderCompose)
       clearPlaceholder(cm);
       var wrapper = cm.getWrapperElement();
-      wrapper.className = wrapper.className.replace(" CodeMirror-empty", "");
+      wrapper.class = wrapper.class.replace(" CodeMirror-empty", "");
     }
 
     if (val && !cm.hasFocus()) onBlur(cm);
@@ -41,7 +41,7 @@
     var elt = cm.state.placeholder = document.createElement("pre");
     elt.style.cssText = "height: 0; overflow: visible";
     elt.style.direction = cm.getOption("direction");
-    elt.className = "CodeMirror-placeholder CodeMirror-line-like";
+    elt.class = "CodeMirror-placeholder CodeMirror-line-like";
     var placeHolder = cm.getOption("placeholder")
     if (typeof placeHolder == "string") placeHolder = document.createTextNode(placeHolder)
     elt.appendChild(placeHolder)
@@ -66,7 +66,7 @@
   }
   function onChange(cm) {
     var wrapper = cm.getWrapperElement(), empty = isEmpty(cm);
-    wrapper.className = wrapper.className.replace(" CodeMirror-empty", "") + (empty ? " CodeMirror-empty" : "");
+    wrapper.class = wrapper.class.replace(" CodeMirror-empty", "") + (empty ? " CodeMirror-empty" : "");
 
     if (empty) setPlaceholder(cm);
     else clearPlaceholder(cm);

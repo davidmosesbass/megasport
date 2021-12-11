@@ -1154,7 +1154,7 @@ $.extend( FixedColumns.prototype , {
 			$(oClone.header).remove();
 
 			oClone.header = $(this.dom.header).clone(true, false)[0];
-			oClone.header.className += " DTFC_Cloned";
+			oClone.header.class += " DTFC_Cloned";
 			oClone.header.style.width = "100%";
 			oGrid.head.appendChild( oClone.header );
 
@@ -1190,11 +1190,11 @@ $.extend( FixedColumns.prototype , {
 			{
 				for ( j=0, jLen=aoCloneLayout[i].length ; j<jLen ; j++ )
 				{
-					aoFixedHeader[i][j].cell.className = aoCloneLayout[i][j].cell.className;
+					aoFixedHeader[i][j].cell.class = aoCloneLayout[i][j].cell.class;
 
 					// If jQuery UI theming is used we need to copy those elements as well
 					$('span.DataTables_sort_icon', aoFixedHeader[i][j].cell).each( function () {
-						this.className = $('span.DataTables_sort_icon', aoCloneLayout[i][j].cell)[0].className;
+						this.class = $('span.DataTables_sort_icon', aoCloneLayout[i][j].cell)[0].class;
 					} );
 				}
 			}
@@ -1217,7 +1217,7 @@ $.extend( FixedColumns.prototype , {
 		}
 
 		oClone.body = $(this.dom.body).clone(true)[0];
-		oClone.body.className += " DTFC_Cloned";
+		oClone.body.class += " DTFC_Cloned";
 		oClone.body.style.paddingBottom = dt.oScroll.iBarWidth+"px";
 		oClone.body.style.marginBottom = (dt.oScroll.iBarWidth*2)+"px"; /* For IE */
 		if ( oClone.body.getAttribute('id') !== null )
@@ -1285,7 +1285,7 @@ $.extend( FixedColumns.prototype , {
 		{
 			$('>tbody>tr', that.dom.body).each( function (z) {
 				nClone = this.cloneNode(true);
-				nClone.className += ' DTFC_NoData';
+				nClone.class += ' DTFC_NoData';
 				$('td', nClone).html('');
 				nBody.appendChild( nClone );
 			} );
@@ -1326,7 +1326,7 @@ $.extend( FixedColumns.prototype , {
 					oClone.footer.parentNode.removeChild( oClone.footer );
 				}
 				oClone.footer = $(this.dom.footer).clone(true, true)[0];
-				oClone.footer.className += " DTFC_Cloned";
+				oClone.footer.class += " DTFC_Cloned";
 				oClone.footer.style.width = "100%";
 				oGrid.foot.appendChild( oClone.footer );
 
@@ -1352,7 +1352,7 @@ $.extend( FixedColumns.prototype , {
 				{
 					for ( j=0, jLen=aoCloneLayout[i].length ; j<jLen ; j++ )
 					{
-						aoCurrFooter[i][j].cell.className = aoCloneLayout[i][j].cell.className;
+						aoCurrFooter[i][j].cell.class = aoCloneLayout[i][j].cell.class;
 					}
 				}
 			}

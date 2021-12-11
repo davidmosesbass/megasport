@@ -304,7 +304,7 @@
         // Create a node with token style and append it to the callback DOM element.
         if (style) {
           var sp = node.appendChild(document.createElement("span"));
-          sp.className = "cm-" + style.replace(/ +/g, " cm-");
+          sp.class = "cm-" + style.replace(/ +/g, " cm-");
           sp.appendChild(document.createTextNode(content));
         } else {
           node.appendChild(document.createTextNode(content));

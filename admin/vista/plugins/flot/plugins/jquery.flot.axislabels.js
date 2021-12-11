@@ -53,9 +53,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     AxisLabel.prototype.calculateSize = function() {
         var axisId = this.axisName + 'Label',
             layerId = axisId + 'Layer',
-            className = axisId + ' axisLabels';
+            class = axisId + ' axisLabels';
 
-        var info = this.surface.getTextInfo(layerId, this.axisLabel, className);
+        var info = this.surface.getTextInfo(layerId, this.axisLabel, class);
         this.labelWidth = info.width;
         this.labelHeight = info.height;
 
@@ -116,14 +116,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     AxisLabel.prototype.cleanup = function() {
         var axisId = this.axisName + 'Label',
             layerId = axisId + 'Layer',
-            className = axisId + ' axisLabels';
-        this.surface.removeText(layerId, 0, 0, this.axisLabel, className);
+            class = axisId + ' axisLabels';
+        this.surface.removeText(layerId, 0, 0, this.axisLabel, class);
     };
 
     AxisLabel.prototype.draw = function(box) {
         var axisId = this.axisName + 'Label',
             layerId = axisId + 'Layer',
-            className = axisId + ' axisLabels',
+            class = axisId + ' axisLabels',
             offsets = this.calculateOffsets(box),
             style = {
                 position: 'absolute',
@@ -136,7 +136,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         var layer = this.surface.getSVGLayer(layerId);
         var transforms = this.transforms(offsets.degrees, offsets.x, offsets.y, layer.parentNode);
 
-        this.surface.addText(layerId, 0, 0, this.axisLabel, className, undefined, undefined, undefined, undefined, transforms);
+        this.surface.addText(layerId, 0, 0, this.axisLabel, class, undefined, undefined, undefined, undefined, transforms);
         this.surface.render();
         Object.keys(style).forEach(function(key) {
             layer.style[key] = style[key];

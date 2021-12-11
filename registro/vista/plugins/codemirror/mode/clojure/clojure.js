@@ -90,7 +90,7 @@ CodeMirror.defineMode("clojure", function (options) {
       "partial", "partition", "partition-all", "partition-by", "pcalls", "peek",
       "persistent!", "pmap", "pop", "pop!", "pop-thread-bindings", "pos-int?",
       "pos?", "pr", "pr-str", "prefer-method", "prefers",
-      "primitives-classnames", "print", "print-ctor", "print-dup",
+      "primitives-classs", "print", "print-ctor", "print-dup",
       "print-method", "print-simple", "print-str", "printf", "println",
       "println-str", "prn", "prn-str", "promise", "proxy",
       "proxy-call-with-super", "proxy-mappings", "proxy-name", "proxy-super",

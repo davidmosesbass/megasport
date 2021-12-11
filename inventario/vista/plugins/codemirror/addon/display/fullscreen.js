@@ -24,14 +24,14 @@
                                   width: wrap.style.width, height: wrap.style.height};
     wrap.style.width = "";
     wrap.style.height = "auto";
-    wrap.className += " CodeMirror-fullscreen";
+    wrap.class += " CodeMirror-fullscreen";
     document.documentElement.style.overflow = "hidden";
     cm.refresh();
   }
 
   function setNormal(cm) {
     var wrap = cm.getWrapperElement();
-    wrap.className = wrap.className.replace(/\s*CodeMirror-fullscreen\b/, "");
+    wrap.class = wrap.class.replace(/\s*CodeMirror-fullscreen\b/, "");
     document.documentElement.style.overflow = "";
     var info = cm.state.fullScreenRestore;
     wrap.style.width = info.width; wrap.style.height = info.height;

@@ -796,7 +796,7 @@ var _excelSpecials = [
 // Copy to clipboard
 //
 DataTable.ext.buttons.copyHtml5 = {
-	className: 'buttons-copy buttons-html5',
+	class: 'buttons-copy buttons-html5',
 
 	text: function ( dt ) {
 		return dt.i18n( 'buttons.copy', 'Copy' );
@@ -926,7 +926,7 @@ DataTable.ext.buttons.copyHtml5 = {
 DataTable.ext.buttons.csvHtml5 = {
 	bom: false,
 
-	className: 'buttons-csv buttons-html5',
+	class: 'buttons-csv buttons-html5',
 
 	available: function () {
 		return window.FileReader !== undefined && window.Blob;
@@ -997,7 +997,7 @@ DataTable.ext.buttons.csvHtml5 = {
 // Excel (xlsx) export
 //
 DataTable.ext.buttons.excelHtml5 = {
-	className: 'buttons-excel buttons-html5',
+	class: 'buttons-excel buttons-html5',
 
 	available: function () {
 		return window.FileReader !== undefined && _jsZip() !== undefined && ! _isDuffSafari() && _serialiser;
@@ -1304,7 +1304,7 @@ DataTable.ext.buttons.excelHtml5 = {
 // PDF export - using pdfMake - http://pdfmake.org
 //
 DataTable.ext.buttons.pdfHtml5 = {
-	className: 'buttons-pdf buttons-html5',
+	class: 'buttons-pdf buttons-html5',
 
 	available: function () {
 		return window.FileReader !== undefined && _pdfMake();

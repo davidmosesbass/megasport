@@ -379,7 +379,7 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
     if (type == "for") return cont(pushlex("form"), forspec, statement, poplex);
     if (type == "class" || (isTS && value == "interface")) {
       cx.marked = "keyword"
-      return cont(pushlex("form", type == "class" ? type : value), className, poplex)
+      return cont(pushlex("form", type == "class" ? type : value), class, poplex)
     }
     if (type == "variable") {
       if (isTS && value == "declare") {
@@ -744,17 +744,17 @@ CodeMirror.defineMode("javascript", function(config, parserConfig) {
   }
   function classExpression(type, value) {
     // Class expressions may have an optional name.
-    if (type == "variable") return className(type, value);
-    return classNameAfter(type, value);
+    if (type == "variable") return class(type, value);
+    return classAfter(type, value);
   }
-  function className(type, value) {
-    if (type == "variable") {register(value); return cont(classNameAfter);}
+  function class(type, value) {
+    if (type == "variable") {register(value); return cont(classAfter);}
   }
-  function classNameAfter(type, value) {
-    if (value == "<") return cont(pushlex(">"), commasep(typeparam, ">"), poplex, classNameAfter)
+  function classAfter(type, value) {
+    if (value == "<") return cont(pushlex(">"), commasep(typeparam, ">"), poplex, classAfter)
     if (value == "extends" || value == "implements" || (isTS && type == ",")) {
       if (value == "implements") cx.marked = "keyword";
-      return cont(isTS ? typeexpr : expression, classNameAfter);
+      return cont(isTS ? typeexpr : expression, classAfter);
     }
     if (type == "{") return cont(pushlex("}"), classBody, poplex);
   }

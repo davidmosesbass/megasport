@@ -50,11 +50,11 @@
   function classTest(cls) { return new RegExp("(^|\\s)" + cls + "(?:$|\\s)\\s*") }
 
   var rmClass = function(node, cls) {
-    var current = node.className;
+    var current = node.class;
     var match = classTest(cls).exec(current);
     if (match) {
       var after = current.slice(match.index + match[0].length);
-      node.className = current.slice(0, match.index) + (after ? match[1] + after : "");
+      node.class = current.slice(0, match.index) + (after ? match[1] + after : "");
     }
   };
 
@@ -68,17 +68,17 @@
     return removeChildren(parent).appendChild(e)
   }
 
-  function elt(tag, content, className, style) {
+  function elt(tag, content, class, style) {
     var e = document.createElement(tag);
-    if (className) { e.className = className; }
+    if (class) { e.class = class; }
     if (style) { e.style.cssText = style; }
     if (typeof content == "string") { e.appendChild(document.createTextNode(content)); }
     else if (content) { for (var i = 0; i < content.length; ++i) { e.appendChild(content[i]); } }
     return e
   }
   // wrapper for elt, which removes the elt from the accessibility tree
-  function eltP(tag, content, className, style) {
-    var e = elt(tag, content, className, style);
+  function eltP(tag, content, class, style) {
+    var e = elt(tag, content, class, style);
     e.setAttribute("role", "presentation");
     return e
   }
@@ -127,8 +127,8 @@
   }
 
   function addClass(node, cls) {
-    var current = node.className;
-    if (!classTest(cls).test(current)) { node.className += (current ? " " : "") + cls; }
+    var current = node.class;
+    if (!classTest(cls).test(current)) { node.class += (current ? " " : "") + cls; }
   }
   function joinClasses(a, b) {
     var as = a.split(" ");
@@ -1770,13 +1770,13 @@
     // See issue #2901
     if (webkit) {
       var last = builder.content.lastChild;
-      if (/\bcm-tab\b/.test(last.className) || (last.querySelector && last.querySelector(".cm-tab")))
-        { builder.content.className = "cm-tab-wrap-hack"; }
+      if (/\bcm-tab\b/.test(last.class) || (last.querySelector && last.querySelector(".cm-tab")))
+        { builder.content.class = "cm-tab-wrap-hack"; }
     }
 
     signal(cm, "renderLine", cm, lineView.line, builder.pre);
-    if (builder.pre.className)
-      { builder.textClass = joinClasses(builder.pre.className, builder.textClass || ""); }
+    if (builder.pre.class)
+      { builder.textClass = joinClasses(builder.pre.class, builder.textClass || ""); }
 
     return builder
   }
@@ -1935,7 +1935,7 @@
               nextChange = sp.to;
               spanEndStyle = "";
             }
-            if (m.className) { spanStyle += " " + m.className; }
+            if (m.class) { spanStyle += " " + m.class; }
             if (m.css) { css = (css ? css + ";" : "") + m.css; }
             if (m.startStyle && sp.from == pos) { spanStartStyle += " " + m.startStyle; }
             if (m.endStyle && sp.to == nextChange) { (endStyles || (endStyles = [])).push(m.endStyle, sp.to); }
@@ -2117,7 +2117,7 @@
     var cls = lineView.bgClass ? lineView.bgClass + " " + (lineView.line.bgClass || "") : lineView.line.bgClass;
     if (cls) { cls += " CodeMirror-linebackground"; }
     if (lineView.background) {
-      if (cls) { lineView.background.className = cls; }
+      if (cls) { lineView.background.class = cls; }
       else { lineView.background.parentNode.removeChild(lineView.background); lineView.background = null; }
     } else if (cls) {
       var wrap = ensureLineWrapped(lineView);
@@ -2142,7 +2142,7 @@
   // classes because the mode may output tokens that influence these
   // classes.
   function updateLineText(cm, lineView) {
-    var cls = lineView.text.className;
+    var cls = lineView.text.class;
     var built = getLineContent(cm, lineView);
     if (lineView.text == lineView.node) { lineView.node = built.pre; }
     lineView.text.parentNode.replaceChild(built.pre, lineView.text);
@@ -2152,18 +2152,18 @@
       lineView.textClass = built.textClass;
       updateLineClasses(cm, lineView);
     } else if (cls) {
-      lineView.text.className = cls;
+      lineView.text.class = cls;
     }
   }
 
   function updateLineClasses(cm, lineView) {
     updateLineBackground(cm, lineView);
     if (lineView.line.wrapClass)
-      { ensureLineWrapped(lineView).className = lineView.line.wrapClass; }
+      { ensureLineWrapped(lineView).class = lineView.line.wrapClass; }
     else if (lineView.node != lineView.text)
-      { lineView.node.className = ""; }
+      { lineView.node.class = ""; }
     var textClass = lineView.textClass ? lineView.textClass + " " + (lineView.line.textClass || "") : lineView.line.textClass;
-    lineView.text.className = textClass || "";
+    lineView.text.class = textClass || "";
   }
 
   function updateLineGutter(cm, lineView, lineN, dims) {
@@ -2189,14 +2189,14 @@
       cm.display.input.setUneditable(gutterWrap);
       wrap$1.insertBefore(gutterWrap, lineView.text);
       if (lineView.line.gutterClass)
-        { gutterWrap.className += " " + lineView.line.gutterClass; }
+        { gutterWrap.class += " " + lineView.line.gutterClass; }
       if (cm.options.lineNumbers && (!markers || !markers["CodeMirror-linenumbers"]))
         { lineView.lineNumber = gutterWrap.appendChild(
           elt("div", lineNumberFor(cm.options, lineN),
               "CodeMirror-linenumber CodeMirror-gutter-elt",
               ("left: " + (dims.gutterLeft["CodeMirror-linenumbers"]) + "px; width: " + (cm.display.lineNumInnerWidth) + "px"))); }
       if (markers) { for (var k = 0; k < cm.display.gutterSpecs.length; ++k) {
-        var id = cm.display.gutterSpecs[k].className, found = markers.hasOwnProperty(id) && markers[id];
+        var id = cm.display.gutterSpecs[k].class, found = markers.hasOwnProperty(id) && markers[id];
         if (found)
           { gutterWrap.appendChild(elt("div", [found], "CodeMirror-gutter-elt",
                                      ("left: " + (dims.gutterLeft[id]) + "px; width: " + (dims.gutterWidth[id]) + "px"))); }
@@ -2209,7 +2209,7 @@
     var isWidget = classTest("CodeMirror-linewidget");
     for (var node = lineView.node.firstChild, next = (void 0); node; node = next) {
       next = node.nextSibling;
-      if (isWidget.test(node.className)) { lineView.node.removeChild(node); }
+      if (isWidget.test(node.class)) { lineView.node.removeChild(node); }
     }
     insertLineWidgets(cm, lineView, dims);
   }
@@ -2239,7 +2239,7 @@
     if (!line.widgets) { return }
     var wrap = ensureLineWrapped(lineView);
     for (var i = 0, ws = line.widgets; i < ws.length; ++i) {
-      var widget = ws[i], node = elt("div", [widget.node], "CodeMirror-linewidget" + (widget.className ? " " + widget.className : ""));
+      var widget = ws[i], node = elt("div", [widget.node], "CodeMirror-linewidget" + (widget.class ? " " + widget.class : ""));
       if (!widget.handleMouseEvents) { node.setAttribute("cm-ignore-events", "true"); }
       positionLineWidget(widget, node, lineView, dims);
       cm.display.input.setUneditable(node);
@@ -2901,7 +2901,7 @@
     var d = cm.display, left = {}, width = {};
     var gutterLeft = d.gutters.clientLeft;
     for (var n = d.gutters.firstChild, i = 0; n; n = n.nextSibling, ++i) {
-      var id = cm.display.gutterSpecs[i].className;
+      var id = cm.display.gutterSpecs[i].class;
       left[id] = n.offsetLeft + n.clientLeft + gutterLeft;
       width[id] = n.clientWidth;
     }
@@ -4290,14 +4290,14 @@
     var result = [], sawLineNumbers = false;
     for (var i = 0; i < gutters.length; i++) {
       var name = gutters[i], style = null;
-      if (typeof name != "string") { style = name.style; name = name.className; }
+      if (typeof name != "string") { style = name.style; name = name.class; }
       if (name == "CodeMirror-linenumbers") {
         if (!lineNumbers) { continue }
         else { sawLineNumbers = true; }
       }
-      result.push({className: name, style: style});
+      result.push({class: name, style: style});
     }
-    if (lineNumbers && !sawLineNumbers) { result.push({className: "CodeMirror-linenumbers", style: null}); }
+    if (lineNumbers && !sawLineNumbers) { result.push({class: "CodeMirror-linenumbers", style: null}); }
     return result
   }
 
@@ -4309,11 +4309,11 @@
     display.lineGutter = null;
     for (var i = 0; i < specs.length; ++i) {
       var ref = specs[i];
-      var className = ref.className;
+      var class = ref.class;
       var style = ref.style;
-      var gElt = gutters.appendChild(elt("div", null, "CodeMirror-gutter " + className));
+      var gElt = gutters.appendChild(elt("div", null, "CodeMirror-gutter " + class));
       if (style) { gElt.style.cssText = style; }
-      if (className == "CodeMirror-linenumbers") {
+      if (class == "CodeMirror-linenumbers") {
         display.lineGutter = gElt;
         gElt.style.width = (display.lineNumWidth || 1) + "px";
       }
@@ -5982,7 +5982,7 @@
       if (updateMaxLine) { cm.curOp.updateMaxLine = true; }
       if (marker.collapsed)
         { regChange(cm, from.line, to.line + 1); }
-      else if (marker.className || marker.startStyle || marker.endStyle || marker.css ||
+      else if (marker.class || marker.startStyle || marker.endStyle || marker.css ||
                marker.attributes || marker.title)
         { for (var i = from.line; i <= to.line; i++) { regLineChange(cm, i, "text"); } }
       if (marker.atomic) { reCheckSelection(cm.doc); }
@@ -6602,8 +6602,8 @@
   // garbage collected.
 
   function forEachCodeMirror(f) {
-    if (!document.getElementsByClassName) { return }
-    var byClass = document.getElementsByClassName("CodeMirror"), editors = [];
+    if (!document.getElementsByclass) { return }
+    var byClass = document.getElementsByclass("CodeMirror"), editors = [];
     for (var i = 0; i < byClass.length; i++) {
       var cm = byClass[i].CodeMirror;
       if (cm) { editors.push(cm); }
@@ -7215,7 +7215,7 @@
       { document.execCommand("cut"); }
 
     // Turn mouse into crosshair when Alt is held on Mac.
-    if (code == 18 && !/\bCodeMirror-crosshair\b/.test(cm.display.lineDiv.className))
+    if (code == 18 && !/\bCodeMirror-crosshair\b/.test(cm.display.lineDiv.class))
       { showCrossHair(cm); }
   }
 
@@ -7624,7 +7624,7 @@
       if (g && g.getBoundingClientRect().right >= mX) {
         var line = lineAtHeight(cm.doc, mY);
         var gutter = cm.display.gutterSpecs[i];
-        signal(cm, type, cm, line, gutter.className, e);
+        signal(cm, type, cm, line, gutter.class, e);
         return e_defaultPrevented(e)
       }
     }
@@ -7651,7 +7651,7 @@
   }
 
   function themeChanged(cm) {
-    cm.display.wrapper.className = cm.display.wrapper.className.replace(/\s*cm-s-\S+/g, "") +
+    cm.display.wrapper.class = cm.display.wrapper.class.replace(/\s*cm-s-\S+/g, "") +
       cm.options.theme.replace(/(^|\s)\s*/g, " cm-s-");
     clearCaches(cm);
   }
@@ -7855,7 +7855,7 @@
     display.wrapper.CodeMirror = this;
     themeChanged(this);
     if (options.lineWrapping)
-      { this.display.wrapper.className += " CodeMirror-wrap"; }
+      { this.display.wrapper.class += " CodeMirror-wrap"; }
     initScrollbars(this);
 
     this.state = {
@@ -8772,7 +8772,7 @@
     function belongsToInput(e) {
       for (var t = e.target; t; t = t.parentNode) {
         if (t == div) { return true }
-        if (/\bCodeMirror-(?:line)?widget\b/.test(t.className)) { break }
+        if (/\bCodeMirror-(?:line)?widget\b/.test(t.class)) { break }
       }
       return false
     }
@@ -9153,7 +9153,7 @@
 
   function isInGutter(node) {
     for (var scan = node; scan; scan = scan.parentNode)
-      { if (/CodeMirror-gutter-wrapper/.test(scan.className)) { return true } }
+      { if (/CodeMirror-gutter-wrapper/.test(scan.class)) { return true } }
     return false
   }
 
@@ -9374,7 +9374,7 @@
       if (input.composing) { input.composing.range.clear(); }
       input.composing = {
         start: start,
-        range: cm.markText(start, cm.getCursor("to"), {className: "CodeMirror-composing"})
+        range: cm.markText(start, cm.getCursor("to"), {class: "CodeMirror-composing"})
       };
     });
     on(te, "compositionend", function () {
@@ -9544,7 +9544,7 @@
       if (this$1.composing) {
         this$1.composing.range.clear();
         this$1.composing.range = cm.markText(this$1.composing.start, cm.getCursor("to"),
-                                           {className: "CodeMirror-composing"});
+                                           {class: "CodeMirror-composing"});
       }
     });
     return true

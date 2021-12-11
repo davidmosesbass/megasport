@@ -66,7 +66,7 @@
     var nameRegexp = new RegExp("^[:"+nameStartChar+"](?::["+nameChar+"]|["+nameChar+"]*)");
     var attributeNameRegexp = new RegExp("^[:"+nameStartChar+"][:\\."+nameChar+"]*(?=\\s*=)");
     var wrappedAttributeNameRegexp = new RegExp("^[:"+nameStartChar+"][:\\."+nameChar+"]*");
-    var classNameRegexp = /^\.-?[_a-zA-Z]+[\w\-]*/;
+    var classRegexp = /^\.-?[_a-zA-Z]+[\w\-]*/;
     var classIdRegexp = /^#[_a-zA-Z]+[\w\-]*/;
 
     function backup(pos, tokenize, style) {
@@ -395,7 +395,7 @@
         state.tokenize = slimClass;
         return "slimId";
       }
-      if (stream.match(classNameRegexp)) {
+      if (stream.match(classRegexp)) {
         state.tokenize = slimClass;
         return "slimClass";
       }

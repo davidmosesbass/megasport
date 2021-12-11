@@ -38,17 +38,17 @@ var DataTable = $.fn.dataTable;
 $.extend( true, DataTable.Buttons.defaults, {
 	dom: {
 		container: {
-			className: 'dt-buttons btn-group flex-wrap'
+			class: 'dt-buttons btn-group flex-wrap'
 		},
 		button: {
-			className: 'btn btn-secondary'
+			class: 'btn btn-secondary'
 		},
 		collection: {
 			tag: 'div',
-			className: 'dropdown-menu',
+			class: 'dropdown-menu',
 			button: {
 				tag: 'a',
-				className: 'dt-button dropdown-item',
+				class: 'dt-button dropdown-item',
 				active: 'active',
 				disabled: 'disabled'
 			}
@@ -61,8 +61,8 @@ $.extend( true, DataTable.Buttons.defaults, {
 	}
 } );
 
-DataTable.ext.buttons.collection.className += ' dropdown-toggle';
-DataTable.ext.buttons.collection.rightAlignClassName = 'dropdown-menu-right';
+DataTable.ext.buttons.collection.class += ' dropdown-toggle';
+DataTable.ext.buttons.collection.rightAlignclass = 'dropdown-menu-right';
 
 return DataTable.Buttons;
 }));

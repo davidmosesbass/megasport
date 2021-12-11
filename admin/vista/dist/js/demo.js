@@ -523,9 +523,9 @@
   })
 
   var active_navbar_color = null
-  $('.main-header')[0].classList.forEach(function (className) {
-    if (navbar_all_colors.indexOf(className) > -1 && active_navbar_color === null) {
-      active_navbar_color = className.replace('navbar-', 'bg-')
+  $('.main-header')[0].classList.forEach(function (class) {
+    if (navbar_all_colors.indexOf(class) > -1 && active_navbar_color === null) {
+      active_navbar_color = class.replace('navbar-', 'bg-')
     }
   })
 
@@ -555,9 +555,9 @@
   }, true))
 
   var active_accent_color = null
-  $('body')[0].classList.forEach(function (className) {
-    if (accent_colors.indexOf(className) > -1 && active_accent_color === null) {
-      active_accent_color = className.replace('navbar-', 'bg-')
+  $('body')[0].classList.forEach(function (class) {
+    if (accent_colors.indexOf(class) > -1 && active_accent_color === null) {
+      active_accent_color = class.replace('navbar-', 'bg-')
     }
   })
 
@@ -587,8 +587,8 @@
   $container.append($sidebar_dark_variants)
 
   var active_sidebar_dark_color = null
-  $('.main-sidebar')[0].classList.forEach(function (className) {
-    var color = className.replace('sidebar-dark-', 'bg-')
+  $('.main-sidebar')[0].classList.forEach(function (class) {
+    var color = class.replace('sidebar-dark-', 'bg-')
     if (sidebar_colors.indexOf(color) > -1 && active_sidebar_dark_color === null) {
       active_sidebar_dark_color = color
     }
@@ -620,8 +620,8 @@
   $container.append($sidebar_light_variants)
 
   var active_sidebar_light_color = null
-  $('.main-sidebar')[0].classList.forEach(function (className) {
-    var color = className.replace('sidebar-light-', 'bg-')
+  $('.main-sidebar')[0].classList.forEach(function (class) {
+    var color = class.replace('sidebar-light-', 'bg-')
     if (sidebar_colors.indexOf(color) > -1 && active_sidebar_light_color === null) {
       active_sidebar_light_color = color
     }
@@ -673,9 +673,9 @@
   $container.append($brand_variants)
 
   var active_brand_color = null
-  $('.brand-link')[0].classList.forEach(function (className) {
-    if (logo_skins.indexOf(className) > -1 && active_brand_color === null) {
-      active_brand_color = className.replace('navbar-', 'bg-')
+  $('.brand-link')[0].classList.forEach(function (class) {
+    if (logo_skins.indexOf(class) > -1 && active_brand_color === null) {
+      active_brand_color = class.replace('navbar-', 'bg-')
     }
   })
 

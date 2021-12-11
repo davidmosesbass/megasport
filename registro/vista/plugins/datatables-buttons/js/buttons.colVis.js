@@ -45,7 +45,7 @@ $.extend( DataTable.ext.buttons, {
 			text: function ( dt ) {
 				return dt.i18n( 'buttons.colvis', 'Column visibility' );
 			},
-			className: 'buttons-colvis',
+			class: 'buttons-colvis',
 			buttons: [ {
 				extend: 'columnsToggle',
 				columns: conf.columns,
@@ -96,7 +96,7 @@ $.extend( DataTable.ext.buttons, {
 		text: function ( dt, button, conf ) {
 			return conf._columnText( dt, conf );
 		},
-		className: 'buttons-columnVisibility',
+		class: 'buttons-columnVisibility',
 		action: function ( e, dt, button, conf ) {
 			var col = dt.columns( conf.columns );
 			var curr = col.visible();
@@ -165,7 +165,7 @@ $.extend( DataTable.ext.buttons, {
 
 
 	colvisRestore: {
-		className: 'buttons-colvisRestore',
+		class: 'buttons-colvisRestore',
 
 		text: function ( dt ) {
 			return dt.i18n( 'buttons.colvisRestore', 'Restore visibility' );
@@ -192,7 +192,7 @@ $.extend( DataTable.ext.buttons, {
 
 
 	colvisGroup: {
-		className: 'buttons-colvisGroup',
+		class: 'buttons-colvisGroup',
 
 		action: function ( e, dt, button, conf ) {
 			dt.columns( conf.show ).visible( true, false );

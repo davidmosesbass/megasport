@@ -34,7 +34,7 @@
       node.innerHTML = "";
       CodeMirror.runMode(text.join(""), mode, node);
 
-      node.className += " cm-s-default";
+      node.class += " cm-s-default";
     }
   };
 });

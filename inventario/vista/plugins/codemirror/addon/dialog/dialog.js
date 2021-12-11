@@ -16,9 +16,9 @@
     var dialog;
     dialog = wrap.appendChild(document.createElement("div"));
     if (bottom)
-      dialog.className = "CodeMirror-dialog CodeMirror-dialog-bottom";
+      dialog.class = "CodeMirror-dialog CodeMirror-dialog-bottom";
     else
-      dialog.className = "CodeMirror-dialog CodeMirror-dialog-top";
+      dialog.class = "CodeMirror-dialog CodeMirror-dialog-top";
 
     if (typeof template == "string") {
       dialog.innerHTML = template;

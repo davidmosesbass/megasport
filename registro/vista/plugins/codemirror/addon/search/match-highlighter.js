@@ -94,7 +94,7 @@
                                                query.replace(/[\\\[.+*?(){|^$]/g, "\\$&") +
                                                (/\w/.test(query.charAt(query.length - 1)) ? "\\b" : "")) : query;
       state.matchesonscroll = cm.showMatchesOnScrollbar(searchFor, false,
-        {className: "CodeMirror-selection-highlight-scrollbar"});
+        {class: "CodeMirror-selection-highlight-scrollbar"});
     }
   }
 

@@ -409,7 +409,7 @@
                 ];
                 var restrictedStringsSplit = ' ';
                 var restrictedStringsPossibilitiesSplit = ':';
-                var classNameAllowedValues = [TYPES.z, TYPES.s];
+                var classAllowedValues = [TYPES.z, TYPES.s];
                 var numberAllowedValues = TYPES.n;
                 var booleanNullAllowedValues = [TYPES.z, TYPES.b];
                 var booleanTrueTemplate = [true, TYPES.b];
@@ -422,7 +422,7 @@
                 var scrollbarsVisibilityAllowedValues = 'v:visible h:hidden a:auto';
                 var scrollbarsAutoHideAllowedValues = 'n:never s:scroll l:leave m:move';
                 var optionsDefaultsAndTemplate = {
-                    className: ['os-theme-dark', classNameAllowedValues],                //null || string
+                    class: ['os-theme-dark', classAllowedValues],                //null || string
                     resize: ['none', resizeAllowedValues],                               //none || both  || horizontal || vertical || n || b || h || v
                     sizeAutoCapable: booleanTrueTemplate,                                //true || false
                     clipAlways: booleanTrueTemplate,                                     //true || false
@@ -1050,62 +1050,62 @@
 
                 //class names:	
                 var _cassNamesPrefix = 'os-';
-                var _classNameHTMLElement = _cassNamesPrefix + 'html';
-                var _classNameHostElement = _cassNamesPrefix + 'host';
-                var _classNameHostElementForeign = _classNameHostElement + '-foreign';
-                var _classNameHostTextareaElement = _classNameHostElement + '-textarea';
-                var _classNameHostScrollbarHorizontalHidden = _classNameHostElement + '-' + _strScrollbar + _strMinusHorizontal + _strMinusHidden;
-                var _classNameHostScrollbarVerticalHidden = _classNameHostElement + '-' + _strScrollbar + _strMinusVertical + _strMinusHidden;
-                var _classNameHostTransition = _classNameHostElement + '-transition';
-                var _classNameHostRTL = _classNameHostElement + '-rtl';
-                var _classNameHostResizeDisabled = _classNameHostElement + '-resize-disabled';
-                var _classNameHostScrolling = _classNameHostElement + '-scrolling';
-                var _classNameHostOverflow = _classNameHostElement + '-overflow';
-                var _classNameHostOverflow = _classNameHostElement + '-overflow';
-                var _classNameHostOverflowX = _classNameHostOverflow + '-x';
-                var _classNameHostOverflowY = _classNameHostOverflow + '-y';
-                var _classNameTextareaElement = _cassNamesPrefix + 'textarea';
-                var _classNameTextareaCoverElement = _classNameTextareaElement + '-cover';
-                var _classNamePaddingElement = _cassNamesPrefix + 'padding';
-                var _classNameViewportElement = _cassNamesPrefix + 'viewport';
-                var _classNameViewportNativeScrollbarsInvisible = _classNameViewportElement + '-native-scrollbars-invisible';
-                var _classNameViewportNativeScrollbarsOverlaid = _classNameViewportElement + '-native-scrollbars-overlaid';
-                var _classNameContentElement = _cassNamesPrefix + 'content';
-                var _classNameContentArrangeElement = _cassNamesPrefix + 'content-arrange';
-                var _classNameContentGlueElement = _cassNamesPrefix + 'content-glue';
-                var _classNameSizeAutoObserverElement = _cassNamesPrefix + 'size-auto-observer';
-                var _classNameResizeObserverElement = _cassNamesPrefix + 'resize-observer';
-                var _classNameResizeObserverItemElement = _cassNamesPrefix + 'resize-observer-item';
-                var _classNameResizeObserverItemFinalElement = _classNameResizeObserverItemElement + '-final';
-                var _classNameTextInherit = _cassNamesPrefix + 'text-inherit';
-                var _classNameScrollbar = _cassNamesPrefix + _strScrollbar;
-                var _classNameScrollbarTrack = _classNameScrollbar + '-track';
-                var _classNameScrollbarTrackOff = _classNameScrollbarTrack + '-off';
-                var _classNameScrollbarHandle = _classNameScrollbar + '-handle';
-                var _classNameScrollbarHandleOff = _classNameScrollbarHandle + '-off';
-                var _classNameScrollbarUnusable = _classNameScrollbar + '-unusable';
-                var _classNameScrollbarAutoHidden = _classNameScrollbar + '-' + _strAuto + _strMinusHidden;
-                var _classNameScrollbarCorner = _classNameScrollbar + '-corner';
-                var _classNameScrollbarCornerResize = _classNameScrollbarCorner + '-resize';
-                var _classNameScrollbarCornerResizeB = _classNameScrollbarCornerResize + '-both';
-                var _classNameScrollbarCornerResizeH = _classNameScrollbarCornerResize + _strMinusHorizontal;
-                var _classNameScrollbarCornerResizeV = _classNameScrollbarCornerResize + _strMinusVertical;
-                var _classNameScrollbarHorizontal = _classNameScrollbar + _strMinusHorizontal;
-                var _classNameScrollbarVertical = _classNameScrollbar + _strMinusVertical;
-                var _classNameDragging = _cassNamesPrefix + 'dragging';
-                var _classNameThemeNone = _cassNamesPrefix + 'theme-none';
-                var _classNamesDynamicDestroy = [
-                    _classNameViewportNativeScrollbarsInvisible,
-                    _classNameViewportNativeScrollbarsOverlaid,
-                    _classNameScrollbarTrackOff,
-                    _classNameScrollbarHandleOff,
-                    _classNameScrollbarUnusable,
-                    _classNameScrollbarAutoHidden,
-                    _classNameScrollbarCornerResize,
-                    _classNameScrollbarCornerResizeB,
-                    _classNameScrollbarCornerResizeH,
-                    _classNameScrollbarCornerResizeV,
-                    _classNameDragging].join(_strSpace);
+                var _classHTMLElement = _cassNamesPrefix + 'html';
+                var _classHostElement = _cassNamesPrefix + 'host';
+                var _classHostElementForeign = _classHostElement + '-foreign';
+                var _classHostTextareaElement = _classHostElement + '-textarea';
+                var _classHostScrollbarHorizontalHidden = _classHostElement + '-' + _strScrollbar + _strMinusHorizontal + _strMinusHidden;
+                var _classHostScrollbarVerticalHidden = _classHostElement + '-' + _strScrollbar + _strMinusVertical + _strMinusHidden;
+                var _classHostTransition = _classHostElement + '-transition';
+                var _classHostRTL = _classHostElement + '-rtl';
+                var _classHostResizeDisabled = _classHostElement + '-resize-disabled';
+                var _classHostScrolling = _classHostElement + '-scrolling';
+                var _classHostOverflow = _classHostElement + '-overflow';
+                var _classHostOverflow = _classHostElement + '-overflow';
+                var _classHostOverflowX = _classHostOverflow + '-x';
+                var _classHostOverflowY = _classHostOverflow + '-y';
+                var _classTextareaElement = _cassNamesPrefix + 'textarea';
+                var _classTextareaCoverElement = _classTextareaElement + '-cover';
+                var _classPaddingElement = _cassNamesPrefix + 'padding';
+                var _classViewportElement = _cassNamesPrefix + 'viewport';
+                var _classViewportNativeScrollbarsInvisible = _classViewportElement + '-native-scrollbars-invisible';
+                var _classViewportNativeScrollbarsOverlaid = _classViewportElement + '-native-scrollbars-overlaid';
+                var _classContentElement = _cassNamesPrefix + 'content';
+                var _classContentArrangeElement = _cassNamesPrefix + 'content-arrange';
+                var _classContentGlueElement = _cassNamesPrefix + 'content-glue';
+                var _classSizeAutoObserverElement = _cassNamesPrefix + 'size-auto-observer';
+                var _classResizeObserverElement = _cassNamesPrefix + 'resize-observer';
+                var _classResizeObserverItemElement = _cassNamesPrefix + 'resize-observer-item';
+                var _classResizeObserverItemFinalElement = _classResizeObserverItemElement + '-final';
+                var _classTextInherit = _cassNamesPrefix + 'text-inherit';
+                var _classScrollbar = _cassNamesPrefix + _strScrollbar;
+                var _classScrollbarTrack = _classScrollbar + '-track';
+                var _classScrollbarTrackOff = _classScrollbarTrack + '-off';
+                var _classScrollbarHandle = _classScrollbar + '-handle';
+                var _classScrollbarHandleOff = _classScrollbarHandle + '-off';
+                var _classScrollbarUnusable = _classScrollbar + '-unusable';
+                var _classScrollbarAutoHidden = _classScrollbar + '-' + _strAuto + _strMinusHidden;
+                var _classScrollbarCorner = _classScrollbar + '-corner';
+                var _classScrollbarCornerResize = _classScrollbarCorner + '-resize';
+                var _classScrollbarCornerResizeB = _classScrollbarCornerResize + '-both';
+                var _classScrollbarCornerResizeH = _classScrollbarCornerResize + _strMinusHorizontal;
+                var _classScrollbarCornerResizeV = _classScrollbarCornerResize + _strMinusVertical;
+                var _classScrollbarHorizontal = _classScrollbar + _strMinusHorizontal;
+                var _classScrollbarVertical = _classScrollbar + _strMinusVertical;
+                var _classDragging = _cassNamesPrefix + 'dragging';
+                var _classThemeNone = _cassNamesPrefix + 'theme-none';
+                var _classsDynamicDestroy = [
+                    _classViewportNativeScrollbarsInvisible,
+                    _classViewportNativeScrollbarsOverlaid,
+                    _classScrollbarTrackOff,
+                    _classScrollbarHandleOff,
+                    _classScrollbarUnusable,
+                    _classScrollbarAutoHidden,
+                    _classScrollbarCornerResize,
+                    _classScrollbarCornerResizeB,
+                    _classScrollbarCornerResizeH,
+                    _classScrollbarCornerResizeV,
+                    _classDragging].join(_strSpace);
 
                 //callbacks:	
                 var _callbacksInitQeueue = [];
@@ -1192,8 +1192,8 @@
                 var _scrollbarsDragScrollingCache;
                 var _resizeCache;
                 var _normalizeRTLCache;
-                var _classNameCache;
-                var _oldClassName;
+                var _classCache;
+                var _oldclass;
                 var _textareaAutoWrappingCache;
                 var _textareaInfoCache;
                 var _textareaSizeCache;
@@ -1302,20 +1302,20 @@
                         //add resize observer:
                         if (onElementResizedCallback) {
                             if (_supportResizeObserver) {
-                                var element = targetElement.addClass('observed').append(generateDiv(_classNameResizeObserverElement)).contents()[0];
+                                var element = targetElement.addClass('observed').append(generateDiv(_classResizeObserverElement)).contents()[0];
                                 var observer = element[_strResizeObserverProperty] = new resizeObserver(callback);
                                 observer.observe(element);
                             }
                             else {
                                 if (_msieVersion > 9 || !_autoUpdateRecommended) {
                                     targetElement.prepend(
-                                        generateDiv(_classNameResizeObserverElement,
-                                            generateDiv({ c: _classNameResizeObserverItemElement, dir: 'ltr' },
-                                                generateDiv(_classNameResizeObserverItemElement,
-                                                    generateDiv(_classNameResizeObserverItemFinalElement)
+                                        generateDiv(_classResizeObserverElement,
+                                            generateDiv({ c: _classResizeObserverItemElement, dir: 'ltr' },
+                                                generateDiv(_classResizeObserverItemElement,
+                                                    generateDiv(_classResizeObserverItemFinalElement)
                                                 ) +
-                                                generateDiv(_classNameResizeObserverItemElement,
-                                                    generateDiv({ c: _classNameResizeObserverItemFinalElement, style: 'width: 200%; height: 200%' })
+                                                generateDiv(_classResizeObserverItemElement,
+                                                    generateDiv({ c: _classResizeObserverItemFinalElement, style: 'width: 200%; height: 200%' })
                                                 )
                                             )
                                         )
@@ -1404,13 +1404,13 @@
                                     var attachEvent = _documentElementNative.attachEvent;
                                     var isIE = _msieVersion !== undefined;
                                     if (attachEvent) {
-                                        targetElement.prepend(generateDiv(_classNameResizeObserverElement));
-                                        findFirst(targetElement, _strDot + _classNameResizeObserverElement)[0].attachEvent('onresize', callback);
+                                        targetElement.prepend(generateDiv(_classResizeObserverElement));
+                                        findFirst(targetElement, _strDot + _classResizeObserverElement)[0].attachEvent('onresize', callback);
                                     }
                                     else {
                                         var obj = _documentElementNative.createElement(TYPES.o);
                                         obj.setAttribute(LEXICON.ti, '-1');
-                                        obj.setAttribute(LEXICON.c, _classNameResizeObserverElement);
+                                        obj.setAttribute(LEXICON.c, _classResizeObserverElement);
                                         obj.onload = function () {
                                             var wnd = this.contentDocument.defaultView;
                                             wnd.addEventListener('resize', callback);
@@ -1473,7 +1473,7 @@
                                 }
                             }
                             else {
-                                remove(targetElement.children(_strDot + _classNameResizeObserverElement).eq(0));
+                                remove(targetElement.children(_strDot + _classResizeObserverElement).eq(0));
                             }
                         }
                     }
@@ -1492,7 +1492,7 @@
                                 element[_strResizeObserverProperty].unobserve(element);
                             }
                             else {
-                                targetElement = targetElement.children(_strDot + _classNameResizeObserverElement).eq(0);
+                                targetElement = targetElement.children(_strDot + _classResizeObserverElement).eq(0);
                                 var w = targetElement.css(_strWidth);
                                 var h = targetElement.css(_strHeight);
                                 var css = {};
@@ -1510,7 +1510,7 @@
                                 var css = { };
                                 css[_strHeight] = _strEmpty;
                                 css[_strWidth] = _strEmpty;
-                                targetElement.children(_strDot + _classNameResizeObserverElement).eq(0).css(css);
+                                targetElement.children(_strDot + _classResizeObserverElement).eq(0).css(css);
                             }
                         }
                     }
@@ -1533,7 +1533,7 @@
                         var mutationIsClass;
                         var oldMutationVal;
                         var newClassVal;
-                        var hostClassNameRegex;
+                        var hostclassRegex;
                         var contentTimeout;
                         var now;
                         var sizeAuto;
@@ -1553,14 +1553,14 @@
                                     mutationAttrName = mutation.attributeName;
                                     mutationIsClass = mutationAttrName === LEXICON.c;
                                     oldMutationVal = mutation.oldValue;
-                                    newClassVal = mutationTarget.className;
+                                    newClassVal = mutationTarget.class;
 
                                     if (_domExists && mutationIsClass && !doUpdateForce) {
-                                        // if old class value contains _classNameHostElementForeign and new class value doesn't
-                                        if (oldMutationVal.indexOf(_classNameHostElementForeign) > -1 && newClassVal.indexOf(_classNameHostElementForeign) < 0) {
-                                            hostClassNameRegex = createHostClassNameRegExp(true);
-                                            _hostElementNative.className = newClassVal.split(_strSpace).concat(oldMutationVal.split(_strSpace).filter(function (name) {
-                                                return name.match(hostClassNameRegex);
+                                        // if old class value contains _classHostElementForeign and new class value doesn't
+                                        if (oldMutationVal.indexOf(_classHostElementForeign) > -1 && newClassVal.indexOf(_classHostElementForeign) < 0) {
+                                            hostclassRegex = createHostclassRegExp(true);
+                                            _hostElementNative.class = newClassVal.split(_strSpace).concat(oldMutationVal.split(_strSpace).filter(function (name) {
+                                                return name.match(hostclassRegex);
                                             })).join(_strSpace);
                                             doUpdate = doUpdateForce = true;
                                         }
@@ -1568,7 +1568,7 @@
 
                                     if (!doUpdate) {
                                         doUpdate = mutationIsClass
-                                            ? hostClassNamesChanged(oldMutationVal, newClassVal)
+                                            ? hostclasssChanged(oldMutationVal, newClassVal)
                                             : mutationAttrName === LEXICON.s
                                                 ? oldMutationVal !== mutationTarget[LEXICON.s].cssText
                                                 : true;
@@ -1698,7 +1698,7 @@
                  * The mouse leave event of the host element. This event is only needed for the autoHide feature.
                  */
                 function hostOnMouseLeave() {
-                    if (_scrollbarsAutoHideLeave && !_bodyElement.hasClass(_classNameDragging))
+                    if (_scrollbarsAutoHideLeave && !_bodyElement.hasClass(_classDragging))
                         refreshScrollbarsAutoHide(false);
                 }
 
@@ -1781,17 +1781,17 @@
 
                 /**
                  * Returns true if the class names really changed (new class without plugin host prefix)
-                 * @param oldClassNames The old ClassName string or array.
-                 * @param newClassNames The new ClassName string or array.
+                 * @param oldclasss The old class string or array.
+                 * @param newclasss The new class string or array.
                  * @returns {boolean} True if the class names has really changed, false otherwise.
                  */
-                function hostClassNamesChanged(oldClassNames, newClassNames) {
-                    var currClasses = typeof newClassNames == TYPES.s ? newClassNames.split(_strSpace) : [];
-                    var oldClasses = typeof oldClassNames == TYPES.s ? oldClassNames.split(_strSpace) : [];
+                function hostclasssChanged(oldclasss, newclasss) {
+                    var currClasses = typeof newclasss == TYPES.s ? newclasss.split(_strSpace) : [];
+                    var oldClasses = typeof oldclasss == TYPES.s ? oldclasss.split(_strSpace) : [];
                     var diff = getArrayDifferences(oldClasses, currClasses);
 
                     // remove none theme from diff list to prevent update
-                    var idx = inArray(_classNameThemeNone, diff);
+                    var idx = inArray(_classThemeNone, diff);
                     var i;
                     var regex;
 
@@ -1799,7 +1799,7 @@
                         diff.splice(idx, 1);
 
                     if (diff[LEXICON.l] > 0) {
-                        regex = createHostClassNameRegExp(true, true);
+                        regex = createHostclassRegExp(true, true);
                         for (i = 0; i < diff.length; i++) {
                             if (!diff[i].match(regex)) {
                                 return true;
@@ -1823,16 +1823,16 @@
                     if (mutationTarget === _contentElementNative)
                         return attributeName === null;
                     if (mutationType === 'attributes' && (attributeName === LEXICON.c || attributeName === LEXICON.s) && !_isTextarea) {
-                        //ignore className changes by the plugin	
-                        if (attributeName === LEXICON.c && FRAMEWORK(mutationTarget).hasClass(_classNameHostElement))
-                            return hostClassNamesChanged(mutation.oldValue, mutationTarget.className);
+                        //ignore class changes by the plugin	
+                        if (attributeName === LEXICON.c && FRAMEWORK(mutationTarget).hasClass(_classHostElement))
+                            return hostclasssChanged(mutation.oldValue, mutationTarget.class);
 
                         //only do it of browser support it natively	
                         if (typeof mutationTarget[strClosest] != TYPES.f)
                             return true;
-                        if (mutationTarget[strClosest](_strDot + _classNameResizeObserverElement) !== null ||
-                            mutationTarget[strClosest](_strDot + _classNameScrollbar) !== null ||
-                            mutationTarget[strClosest](_strDot + _classNameScrollbarCorner) !== null)
+                        if (mutationTarget[strClosest](_strDot + _classResizeObserverElement) !== null ||
+                            mutationTarget[strClosest](_strDot + _classScrollbar) !== null ||
+                            mutationTarget[strClosest](_strDot + _classScrollbarCorner) !== null)
                             return false;
                     }
                     return true;
@@ -2174,9 +2174,9 @@
                     var scrollbarsDragScrolling = currentPreparedOptionsScrollbars.dragScrolling;
                     var scrollbarsDragScrollingChanged = checkCacheAutoForce(scrollbarsDragScrolling, _scrollbarsDragScrollingCache);
 
-                    //className
-                    var className = _currentPreparedOptions.className;
-                    var classNameChanged = checkCacheAutoForce(className, _classNameCache);
+                    //class
+                    var class = _currentPreparedOptions.class;
+                    var classChanged = checkCacheAutoForce(class, _classCache);
 
                     //resize
                     var resize = _currentPreparedOptions.resize;
@@ -2223,8 +2223,8 @@
                     //scrollbars autoHideDelay
                     _scrollbarsAutoHideDelay = currentPreparedOptionsScrollbars.autoHideDelay;
 
-                    //old className
-                    _oldClassName = _classNameCache;
+                    //old class
+                    _oldclass = _classCache;
 
                     //resize
                     _resizeNone = resize === 'n';
@@ -2243,7 +2243,7 @@
                     _scrollbarsAutoHideCache = scrollbarsAutoHide;
                     _scrollbarsClickScrollingCache = scrollbarsClickScrolling;
                     _scrollbarsDragScrollingCache = scrollbarsDragScrolling;
-                    _classNameCache = className;
+                    _classCache = class;
                     _resizeCache = resize;
                     _paddingAbsoluteCache = paddingAbsolute;
                     _clipAlwaysCache = clipAlways;
@@ -2256,9 +2256,9 @@
                     _hasOverflowCache = _hasOverflowCache || { x: false, y: false };
 
                     //set correct class name to the host element
-                    if (classNameChanged) {
-                        removeClass(_hostElement, _oldClassName + _strSpace + _classNameThemeNone);
-                        addClass(_hostElement, className !== undefined && className !== null && className.length > 0 ? className : _classNameThemeNone);
+                    if (classChanged) {
+                        removeClass(_hostElement, _oldclass + _strSpace + _classThemeNone);
+                        addClass(_hostElement, class !== undefined && class !== null && class.length > 0 ? class : _classThemeNone);
                     }
 
                     //set correct auto Update
@@ -2280,14 +2280,14 @@
                                 _contentGlueElement.show();
                             }
                             else {
-                                _contentGlueElement = FRAMEWORK(generateDiv(_classNameContentGlueElement));
+                                _contentGlueElement = FRAMEWORK(generateDiv(_classContentGlueElement));
                                 _paddingElement.before(_contentGlueElement);
                             }
                             if (_sizeAutoObserverAdded) {
                                 _sizeAutoObserverElement.show();
                             }
                             else {
-                                _sizeAutoObserverElement = FRAMEWORK(generateDiv(_classNameSizeAutoObserverElement));
+                                _sizeAutoObserverElement = FRAMEWORK(generateDiv(_classSizeAutoObserverElement));
                                 _sizeAutoObserverElementNative = _sizeAutoObserverElement[0];
 
                                 _contentGlueElement.before(_sizeAutoObserverElement);
@@ -2732,7 +2732,7 @@
                                 };
 
                                 if (_nativeScrollbarStyling) {
-                                    addRemoveClass(_viewportElement, _classNameViewportNativeScrollbarsInvisible, !ignoreOverlayScrollbarHiding)
+                                    addRemoveClass(_viewportElement, _classViewportNativeScrollbarsInvisible, !ignoreOverlayScrollbarHiding)
                                 }
                                 else {
                                     setContentElementCSS(true);
@@ -2748,7 +2748,7 @@
                                 contentArrangeElementCSS[_strHeight] = hideOverflow.x ? arrangeContent.h : _strEmpty;
 
                                 if (!_contentArrangeElement) {
-                                    _contentArrangeElement = FRAMEWORK(generateDiv(_classNameContentArrangeElement));
+                                    _contentArrangeElement = FRAMEWORK(generateDiv(_classContentArrangeElement));
                                     _viewportElement.prepend(_contentArrangeElement);
                                 }
                                 _contentArrangeElement.css(contentArrangeElementCSS);
@@ -2916,31 +2916,31 @@
                         };
 
                         //manage class name which indicates scrollable overflow
-                        addRemoveClass(_hostElement, _classNameHostOverflow, hideOverflow.x || hideOverflow.y);
-                        addRemoveClass(_hostElement, _classNameHostOverflowX, hideOverflow.x);
-                        addRemoveClass(_hostElement, _classNameHostOverflowY, hideOverflow.y);
+                        addRemoveClass(_hostElement, _classHostOverflow, hideOverflow.x || hideOverflow.y);
+                        addRemoveClass(_hostElement, _classHostOverflowX, hideOverflow.x);
+                        addRemoveClass(_hostElement, _classHostOverflowY, hideOverflow.y);
 
                         //add or remove rtl class name for styling purposes except when its body, then the scrollbar stays
                         if (cssDirectionChanged && !_isBody) {
-                            addRemoveClass(_hostElement, _classNameHostRTL, _isRTL);
+                            addRemoveClass(_hostElement, _classHostRTL, _isRTL);
                         }
 
                         //manage the resize feature (CSS3 resize "polyfill" for this plugin)
                         if (_isBody)
-                            addClass(_hostElement, _classNameHostResizeDisabled);
+                            addClass(_hostElement, _classHostResizeDisabled);
                         if (resizeChanged) {
-                            addRemoveClass(_hostElement, _classNameHostResizeDisabled, _resizeNone);
-                            addRemoveClass(_scrollbarCornerElement, _classNameScrollbarCornerResize, !_resizeNone);
-                            addRemoveClass(_scrollbarCornerElement, _classNameScrollbarCornerResizeB, _resizeBoth);
-                            addRemoveClass(_scrollbarCornerElement, _classNameScrollbarCornerResizeH, _resizeHorizontal);
-                            addRemoveClass(_scrollbarCornerElement, _classNameScrollbarCornerResizeV, _resizeVertical);
+                            addRemoveClass(_hostElement, _classHostResizeDisabled, _resizeNone);
+                            addRemoveClass(_scrollbarCornerElement, _classScrollbarCornerResize, !_resizeNone);
+                            addRemoveClass(_scrollbarCornerElement, _classScrollbarCornerResizeB, _resizeBoth);
+                            addRemoveClass(_scrollbarCornerElement, _classScrollbarCornerResizeH, _resizeHorizontal);
+                            addRemoveClass(_scrollbarCornerElement, _classScrollbarCornerResizeV, _resizeVertical);
                         }
 
                         //manage the scrollbars general visibility + the scrollbar interactivity (unusable class name)
                         if (scrollbarsVisibilityChanged || overflowBehaviorChanged || hideOverflow.c || hasOverflow.c || ignoreOverlayScrollbarHidingChanged) {
                             if (ignoreOverlayScrollbarHiding) {
                                 if (ignoreOverlayScrollbarHidingChanged) {
-                                    removeClass(_hostElement, _classNameHostScrolling);
+                                    removeClass(_hostElement, _classHostScrolling);
                                     if (ignoreOverlayScrollbarHiding) {
                                         refreshScrollbarsVisibility(false);
                                     }
@@ -3073,9 +3073,9 @@
                  */
                 function setupStructureDOM(destroy) {
                     var strParent = 'parent';
-                    var classNameResizeObserverHost = 'os-resize-observer-host';
-                    var classNameTextareaElementFull = _classNameTextareaElement + _strSpace + _classNameTextInherit;
-                    var textareaClass = _isTextarea ? _strSpace + _classNameTextInherit : _strEmpty;
+                    var classResizeObserverHost = 'os-resize-observer-host';
+                    var classTextareaElementFull = _classTextareaElement + _strSpace + _classTextInherit;
+                    var textareaClass = _isTextarea ? _strSpace + _classTextInherit : _strEmpty;
                     var adoptAttrs = _currentPreparedOptions.textarea.inheritedAttrs;
                     var adoptAttrsMap = {};
                     var applyAdoptedAttrs = function () {
@@ -3089,41 +3089,41 @@
                             }
                         });
                     };
-                    var hostElementClassNames = [
-                        _classNameHostElement,
-                        _classNameHostElementForeign,
-                        _classNameHostTextareaElement,
-                        _classNameHostResizeDisabled,
-                        _classNameHostRTL,
-                        _classNameHostScrollbarHorizontalHidden,
-                        _classNameHostScrollbarVerticalHidden,
-                        _classNameHostTransition,
-                        _classNameHostScrolling,
-                        _classNameHostOverflow,
-                        _classNameHostOverflowX,
-                        _classNameHostOverflowY,
-                        _classNameThemeNone,
-                        _classNameTextareaElement,
-                        _classNameTextInherit,
-                        _classNameCache].join(_strSpace);
+                    var hostElementclasss = [
+                        _classHostElement,
+                        _classHostElementForeign,
+                        _classHostTextareaElement,
+                        _classHostResizeDisabled,
+                        _classHostRTL,
+                        _classHostScrollbarHorizontalHidden,
+                        _classHostScrollbarVerticalHidden,
+                        _classHostTransition,
+                        _classHostScrolling,
+                        _classHostOverflow,
+                        _classHostOverflowX,
+                        _classHostOverflowY,
+                        _classThemeNone,
+                        _classTextareaElement,
+                        _classTextInherit,
+                        _classCache].join(_strSpace);
                     var hostElementCSS = {};
 
                     //get host element as first element, because that's the most upper element and required for the other elements
-                    _hostElement = _hostElement || (_isTextarea ? (_domExists ? _targetElement[strParent]()[strParent]()[strParent]()[strParent]() : FRAMEWORK(generateDiv(_classNameHostTextareaElement))) : _targetElement);
-                    _contentElement = _contentElement || selectOrGenerateDivByClass(_classNameContentElement + textareaClass);
-                    _viewportElement = _viewportElement || selectOrGenerateDivByClass(_classNameViewportElement + textareaClass);
-                    _paddingElement = _paddingElement || selectOrGenerateDivByClass(_classNamePaddingElement + textareaClass);
-                    _sizeObserverElement = _sizeObserverElement || selectOrGenerateDivByClass(classNameResizeObserverHost);
-                    _textareaCoverElement = _textareaCoverElement || (_isTextarea ? selectOrGenerateDivByClass(_classNameTextareaCoverElement) : undefined);
+                    _hostElement = _hostElement || (_isTextarea ? (_domExists ? _targetElement[strParent]()[strParent]()[strParent]()[strParent]() : FRAMEWORK(generateDiv(_classHostTextareaElement))) : _targetElement);
+                    _contentElement = _contentElement || selectOrGenerateDivByClass(_classContentElement + textareaClass);
+                    _viewportElement = _viewportElement || selectOrGenerateDivByClass(_classViewportElement + textareaClass);
+                    _paddingElement = _paddingElement || selectOrGenerateDivByClass(_classPaddingElement + textareaClass);
+                    _sizeObserverElement = _sizeObserverElement || selectOrGenerateDivByClass(classResizeObserverHost);
+                    _textareaCoverElement = _textareaCoverElement || (_isTextarea ? selectOrGenerateDivByClass(_classTextareaCoverElement) : undefined);
 
                     //add this class to workaround class changing issues with UI frameworks especially Vue
                     if (_domExists)
-                        addClass(_hostElement, _classNameHostElementForeign);
+                        addClass(_hostElement, _classHostElementForeign);
 
                     //on destroy, remove all generated class names from the host element before collecting the adopted attributes 
                     //to prevent adopting generated class names
                     if (destroy)
-                        removeClass(_hostElement, hostElementClassNames);
+                        removeClass(_hostElement, hostElementclasss);
 
                     //collect all adopted attributes
                     adoptAttrs = type(adoptAttrs) == TYPES.s ? adoptAttrs.split(_strSpace) : adoptAttrs;
@@ -3143,7 +3143,7 @@
                             }
 
                             if (!_domExists)
-                                _targetElement.addClass(_classNameTextInherit).wrap(_hostElement);
+                                _targetElement.addClass(_classTextInherit).wrap(_hostElement);
 
                             //jQuery clones elements in wrap functions, so we have to select them again
                             _hostElement = _targetElement[strParent]().css(hostElementCSS);
@@ -3151,7 +3151,7 @@
 
                         if (!_domExists) {
                             //add the correct class to the target element
-                            addClass(_targetElement, _isTextarea ? classNameTextareaElementFull : _classNameHostElement);
+                            addClass(_targetElement, _isTextarea ? classTextareaElementFull : _classHostElement);
 
                             //wrap the content into the generated elements to create the required DOM
                             _hostElement.wrapInner(_contentElement)
@@ -3160,9 +3160,9 @@
                                 .prepend(_sizeObserverElement);
 
                             //jQuery clones elements in wrap functions, so we have to select them again
-                            _contentElement = findFirst(_hostElement, _strDot + _classNameContentElement);
-                            _viewportElement = findFirst(_hostElement, _strDot + _classNameViewportElement);
-                            _paddingElement = findFirst(_hostElement, _strDot + _classNamePaddingElement);
+                            _contentElement = findFirst(_hostElement, _strDot + _classContentElement);
+                            _viewportElement = findFirst(_hostElement, _strDot + _classViewportElement);
+                            _paddingElement = findFirst(_hostElement, _strDot + _classPaddingElement);
 
                             if (_isTextarea) {
                                 _contentElement.prepend(_textareaCoverElement);
@@ -3171,11 +3171,11 @@
                         }
 
                         if (_nativeScrollbarStyling)
-                            addClass(_viewportElement, _classNameViewportNativeScrollbarsInvisible);
+                            addClass(_viewportElement, _classViewportNativeScrollbarsInvisible);
                         if (_nativeScrollbarIsOverlaid.x && _nativeScrollbarIsOverlaid.y)
-                            addClass(_viewportElement, _classNameViewportNativeScrollbarsOverlaid);
+                            addClass(_viewportElement, _classViewportNativeScrollbarsOverlaid);
                         if (_isBody)
-                            addClass(_htmlElement, _classNameHTMLElement);
+                            addClass(_htmlElement, _classHTMLElement);
 
                         _sizeObserverElementNative = _sizeObserverElement[0];
                         _hostElementNative = _hostElement[0];
@@ -3193,12 +3193,12 @@
                             //remove the style property and classes from already generated elements
                             each([_paddingElement, _viewportElement, _contentElement, _textareaCoverElement], function (i, elm) {
                                 if (elm) {
-                                    removeClass(elm.removeAttr(LEXICON.s), _classNamesDynamicDestroy);
+                                    removeClass(elm.removeAttr(LEXICON.s), _classsDynamicDestroy);
                                 }
                             });
 
                             //add classes to the host element which was removed previously to match the expected DOM
-                            addClass(_hostElement, _isTextarea ? _classNameHostTextareaElement : _classNameHostElement);
+                            addClass(_hostElement, _isTextarea ? _classHostTextareaElement : _classHostElement);
                         }
                         else {
                             //remove size observer
@@ -3222,7 +3222,7 @@
                             _targetElement.removeAttr(LEXICON.s);
 
                         if (_isBody)
-                            removeClass(_htmlElement, _classNameHTMLElement);
+                            removeClass(_htmlElement, _classHTMLElement);
                     }
                 }
 
@@ -3311,7 +3311,7 @@
                                     refreshScrollbarsAutoHide(true);
 
                                 if (!nativeOverlayScrollbarsAreActive())
-                                    addClass(_hostElement, _classNameHostScrolling);
+                                    addClass(_hostElement, _classHostScrolling);
 
                                 dispatchCallback('onScrollStart', event);
                             }
@@ -3335,7 +3335,7 @@
                                         refreshScrollbarsAutoHide(false);
 
                                     if (!nativeOverlayScrollbarsAreActive())
-                                        removeClass(_hostElement, _classNameHostScrolling);
+                                        removeClass(_hostElement, _classHostScrolling);
 
                                     dispatchCallback('onScrollStop', event);
                                 }
@@ -3373,10 +3373,10 @@
                  */
                 function setupScrollbarsDOM(destroy) {
                     var selectOrGenerateScrollbarDOM = function (isHorizontal) {
-                        var scrollbarClassName = isHorizontal ? _classNameScrollbarHorizontal : _classNameScrollbarVertical;
-                        var scrollbar = selectOrGenerateDivByClass(_classNameScrollbar + _strSpace + scrollbarClassName, true);
-                        var track = selectOrGenerateDivByClass(_classNameScrollbarTrack, scrollbar);
-                        var handle = selectOrGenerateDivByClass(_classNameScrollbarHandle, scrollbar);
+                        var scrollbarclass = isHorizontal ? _classScrollbarHorizontal : _classScrollbarVertical;
+                        var scrollbar = selectOrGenerateDivByClass(_classScrollbar + _strSpace + scrollbarclass, true);
+                        var track = selectOrGenerateDivByClass(_classScrollbarTrack, scrollbar);
+                        var handle = selectOrGenerateDivByClass(_classScrollbarHandle, scrollbar);
 
                         if (!_domExists && !destroy) {
                             scrollbar.append(track);
@@ -3397,7 +3397,7 @@
 
                         if (_domExists && _initialized) {
                             each([scrollbar, track, handle], function (i, elm) {
-                                removeClass(elm.removeAttr(LEXICON.s), _classNamesDynamicDestroy);
+                                removeClass(elm.removeAttr(LEXICON.s), _classsDynamicDestroy);
                             });
                         }
                         else {
@@ -3517,7 +3517,7 @@
                             refreshScrollbarHandleOffset(isHorizontal, true);
 
                         _scrollbarsHandlesDefineScrollPos = false;
-                        removeClass(_bodyElement, _classNameDragging);
+                        removeClass(_bodyElement, _classDragging);
                         removeClass(scrollbarVars._handle, strActive);
                         removeClass(scrollbarVars._track, strActive);
                         removeClass(scrollbarVars._scrollbar, strActive);
@@ -3560,7 +3560,7 @@
                         mouseDownOffset = getPointerPosition(event);
 
                         _scrollbarsHandlesDefineScrollPos = !getPreparedScrollbarsOption(strSnapHandle);
-                        addClass(_bodyElement, _classNameDragging);
+                        addClass(_bodyElement, _classDragging);
                         addClass(scrollbarVars._handle, strActive);
                         addClass(scrollbarVars._scrollbar, strActive);
 
@@ -3678,7 +3678,7 @@
                             mouseDownOffset = COMPATIBILITY.page(event)[xy];
 
                             _scrollbarsHandlesDefineScrollPos = !getPreparedScrollbarsOption(strSnapHandle);
-                            addClass(_bodyElement, _classNameDragging);
+                            addClass(_bodyElement, _classDragging);
                             addClass(scrollbarVars._track, strActive);
                             addClass(scrollbarVars._scrollbar, strActive);
 
@@ -3733,11 +3733,11 @@
                  * @param canScroll True if the scrollbar is scrollable, false otherwise.
                  */
                 function refreshScrollbarAppearance(isHorizontal, shallBeVisible, canScroll) {
-                    var scrollbarHiddenClassName = isHorizontal ? _classNameHostScrollbarHorizontalHidden : _classNameHostScrollbarVerticalHidden;
+                    var scrollbarHiddenclass = isHorizontal ? _classHostScrollbarHorizontalHidden : _classHostScrollbarVerticalHidden;
                     var scrollbarElement = isHorizontal ? _scrollbarHorizontalElement : _scrollbarVerticalElement;
 
-                    addRemoveClass(_hostElement, scrollbarHiddenClassName, !shallBeVisible);
-                    addRemoveClass(scrollbarElement, _classNameScrollbarUnusable, !canScroll);
+                    addRemoveClass(_hostElement, scrollbarHiddenclass, !shallBeVisible);
+                    addRemoveClass(scrollbarElement, _classScrollbarUnusable, !canScroll);
                 }
 
                 /**
@@ -3749,9 +3749,9 @@
                     clearTimeout(_scrollbarsAutoHideTimeoutId);
                     if (shallBeVisible) {
                         //if(_hasOverflowCache.x && _hideOverflowCache.xs)
-                        removeClass(_scrollbarHorizontalElement, _classNameScrollbarAutoHidden);
+                        removeClass(_scrollbarHorizontalElement, _classScrollbarAutoHidden);
                         //if(_hasOverflowCache.y && _hideOverflowCache.ys)
-                        removeClass(_scrollbarVerticalElement, _classNameScrollbarAutoHidden);
+                        removeClass(_scrollbarVerticalElement, _classScrollbarAutoHidden);
                     }
                     else {
                         var anyActive;
@@ -3760,9 +3760,9 @@
                             if (!_scrollbarsHandleHovered && !_destroyed) {
                                 anyActive = _scrollbarHorizontalHandleElement.hasClass(strActive) || _scrollbarVerticalHandleElement.hasClass(strActive);
                                 if (!anyActive && (_scrollbarsAutoHideScroll || _scrollbarsAutoHideMove || _scrollbarsAutoHideLeave))
-                                    addClass(_scrollbarHorizontalElement, _classNameScrollbarAutoHidden);
+                                    addClass(_scrollbarHorizontalElement, _classScrollbarAutoHidden);
                                 if (!anyActive && (_scrollbarsAutoHideScroll || _scrollbarsAutoHideMove || _scrollbarsAutoHideLeave))
-                                    addClass(_scrollbarVerticalElement, _classNameScrollbarAutoHidden);
+                                    addClass(_scrollbarVerticalElement, _classScrollbarAutoHidden);
                             }
                         };
                         if (_scrollbarsAutoHideDelay > 0 && delayfree !== true)
@@ -3883,10 +3883,10 @@
                     var action = value ? 'removeClass' : 'addClass';
                     var element1 = isTrack ? _scrollbarHorizontalTrackElement : _scrollbarHorizontalHandleElement;
                     var element2 = isTrack ? _scrollbarVerticalTrackElement : _scrollbarVerticalHandleElement;
-                    var className = isTrack ? _classNameScrollbarTrackOff : _classNameScrollbarHandleOff;
+                    var class = isTrack ? _classScrollbarTrackOff : _classScrollbarHandleOff;
 
-                    element1[action](className);
-                    element2[action](className);
+                    element1[action](class);
+                    element2[action](class);
                 }
 
                 /**
@@ -3919,7 +3919,7 @@
                  * @param destroy Indicates whether the DOM shall be build or destroyed.
                  */
                 function setupScrollbarCornerDOM(destroy) {
-                    _scrollbarCornerElement = _scrollbarCornerElement || selectOrGenerateDivByClass(_classNameScrollbarCorner, true);
+                    _scrollbarCornerElement = _scrollbarCornerElement || selectOrGenerateDivByClass(_classScrollbarCorner, true);
 
                     if (!destroy) {
                         if (!_domExists) {
@@ -3928,7 +3928,7 @@
                     }
                     else {
                         if (_domExists && _initialized) {
-                            removeClass(_scrollbarCornerElement.removeAttr(LEXICON.s), _classNamesDynamicDestroy);
+                            removeClass(_scrollbarCornerElement.removeAttr(LEXICON.s), _classsDynamicDestroy);
                         }
                         else {
                             remove(_scrollbarCornerElement);
@@ -3969,7 +3969,7 @@
                             [documentOnSelectStart, documentDragMove, documentMouseTouchUp],
                             true);
 
-                        removeClass(_bodyElement, _classNameDragging);
+                        removeClass(_bodyElement, _classDragging);
                         if (_scrollbarCornerElement.releaseCapture)
                             _scrollbarCornerElement.releaseCapture();
 
@@ -4006,7 +4006,7 @@
                                 [_strSelectStartEvent, _strMouseTouchMoveEvent, _strMouseTouchUpEvent],
                                 [documentOnSelectStart, documentDragMove, documentMouseTouchUp]);
 
-                            addClass(_bodyElement, _classNameDragging);
+                            addClass(_bodyElement, _classDragging);
                             if (_scrollbarCornerElement.setCapture)
                                 _scrollbarCornerElement.setCapture();
 
@@ -4125,10 +4125,10 @@
 
                 /**
                  * Generates a Regular Expression which matches with a string which starts with 'os-host'.
-                 * @param {boolean} withCurrClassNameOption The Regular Expression also matches if the string is the current ClassName option (multiple values splitted by space possible).
-                 * @param {boolean} withOldClassNameOption The Regular Expression also matches if the string is the old ClassName option (multiple values splitted by space possible).
+                 * @param {boolean} withCurrclassOption The Regular Expression also matches if the string is the current class option (multiple values splitted by space possible).
+                 * @param {boolean} withOldclassOption The Regular Expression also matches if the string is the old class option (multiple values splitted by space possible).
                  */
-                function createHostClassNameRegExp(withCurrClassNameOption, withOldClassNameOption) {
+                function createHostclassRegExp(withCurrclassOption, withOldclassOption) {
                     var i;
                     var split;
                     var appendix;
@@ -4144,9 +4144,9 @@
                     };
 
                     return new RegExp(
-                        '(^' + _classNameHostElement + '([-_].+|)$)' +
-                        appendClasses(_classNameCache, withCurrClassNameOption) +
-                        appendClasses(_oldClassName, withOldClassNameOption), 'g');
+                        '(^' + _classHostElement + '([-_].+|)$)' +
+                        appendClasses(_classCache, withCurrclassOption) +
+                        appendClasses(_oldclass, withOldclassOption), 'g');
                 }
 
                 /**
@@ -4270,7 +4270,7 @@
 
                 /**
                  * Generates a string which represents a HTML div with the given classes or attributes.
-                 * @param classesOrAttrs The class of the div as string or a object which represents the attributes of the div. (The class attribute can also be written as "className".)
+                 * @param classesOrAttrs The class of the div as string or a object which represents the attributes of the div. (The class attribute can also be written as "class".)
                  * @param content The content of the div as string.
                  * @returns {string} The concated string which represents a HTML div and its content.
                  */
@@ -4294,20 +4294,20 @@
 
                 /**
                  * Selects or generates a div with the given class attribute.
-                 * @param className The class names (divided by spaces) of the div which shall be selected or generated.
+                 * @param class The class names (divided by spaces) of the div which shall be selected or generated.
                  * @param selectParentOrOnlyChildren The parent element from which of the element shall be selected. (if undefined or boolean its hostElement)
                  * If its a boolean it decides whether only the children of the host element shall be selected.
                  * @returns {*} The generated or selected element.
                  */
-                function selectOrGenerateDivByClass(className, selectParentOrOnlyChildren) {
+                function selectOrGenerateDivByClass(class, selectParentOrOnlyChildren) {
                     var onlyChildren = type(selectParentOrOnlyChildren) == TYPES.b;
                     var selectParent = onlyChildren ? _hostElement : (selectParentOrOnlyChildren || _hostElement);
 
                     return (_domExists && !selectParent[LEXICON.l])
                         ? null
                         : _domExists
-                            ? selectParent[onlyChildren ? 'children' : 'find'](_strDot + className.replace(/\s/g, _strDot)).eq(0)
-                            : FRAMEWORK(generateDiv(className))
+                            ? selectParent[onlyChildren ? 'children' : 'find'](_strDot + class.replace(/\s/g, _strDot)).eq(0)
+                            : FRAMEWORK(generateDiv(class))
                 }
 
                 /**
@@ -5325,8 +5325,8 @@
                      *  </div>
                      */
                     _domExists = _isTextarea
-                        ? _targetElement.hasClass(_classNameTextareaElement) && _targetElement.parent().hasClass(_classNameContentElement)
-                        : _targetElement.hasClass(_classNameHostElement) && _targetElement.children(_strDot + _classNamePaddingElement)[LEXICON.l];
+                        ? _targetElement.hasClass(_classTextareaElement) && _targetElement.parent().hasClass(_classContentElement)
+                        : _targetElement.hasClass(_classHostElement) && _targetElement.children(_strDot + _classPaddingElement)[LEXICON.l];
 
                     var initBodyScroll;
                     var bodyMouseTouchDownListener;
@@ -5414,7 +5414,7 @@
                     //add the transition class for transitions AFTER the first update & AFTER the applied extensions (for preventing unwanted transitions)
                     setTimeout(function () {
                         if (_supportTransition && !_destroyed)
-                            addClass(_hostElement, _classNameHostTransition);
+                            addClass(_hostElement, _classHostTransition);
                     }, 333);
 
                     return _base;

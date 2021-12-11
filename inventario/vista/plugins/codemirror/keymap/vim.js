@@ -302,11 +302,11 @@
           var lineLength = cm.getLine(range.anchor.line).length;
           if (range.anchor.ch < lineLength) {
             result.push(cm.markText(range.anchor, Pos(range.anchor.line, range.anchor.ch + 1),
-                                    {className: "cm-fat-cursor-mark"}));
+                                    {class: "cm-fat-cursor-mark"}));
           } else {
             result.push(cm.markText(Pos(range.anchor.line, lineLength - 1),
                                     Pos(range.anchor.line, lineLength),
-                                    {className: "cm-fat-cursor-mark"}));
+                                    {class: "cm-fat-cursor-mark"}));
           }
         }
       }
@@ -5569,17 +5569,17 @@
      * Keeps track of a fake cursor to support visual mode cursor behavior.
      */
     function updateFakeCursor(cm) {
-      var className = 'cm-animate-fat-cursor';
+      var class = 'cm-animate-fat-cursor';
       var vim = cm.state.vim;
       var from = clipCursorToContent(cm, copyCursor(vim.sel.head));
       var to = offsetCursor(from, 0, 1);
       clearFakeCursor(vim);
       // In visual mode, the cursor may be positioned over EOL.
       if (from.ch == cm.getLine(from.line).length) {
-        var widget = dom('span', { 'class': className }, '\u00a0');
+        var widget = dom('span', { 'class': class }, '\u00a0');
         vim.fakeCursorBookmark = cm.setBookmark(from, {widget: widget});
       } else {
-        vim.fakeCursor = cm.markText(from, to, {className: className});
+        vim.fakeCursor = cm.markText(from, to, {class: class});
       }
     }
     function clearFakeCursor(vim) {

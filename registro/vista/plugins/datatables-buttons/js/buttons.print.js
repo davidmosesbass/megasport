@@ -80,7 +80,7 @@ var _relToAbs = function( href ) {
 
 
 DataTable.ext.buttons.print = {
-	className: 'buttons-print',
+	class: 'buttons-print',
 
 	text: function ( dt ) {
 		return dt.i18n( 'buttons.print', 'Print' );
@@ -118,7 +118,7 @@ DataTable.ext.buttons.print = {
 		};
 
 		// Construct a table for printing
-		var html = '<table class="'+dt.table().node().className+'">';
+		var html = '<table class="'+dt.table().node().class+'">';
 
 		if ( config.header ) {
 			html += '<thead>'+ addRow( data.header, 'th' ) +'</thead>';

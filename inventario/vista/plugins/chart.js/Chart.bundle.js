@@ -7579,7 +7579,7 @@ function throttled(fn, thisArg) {
 
 function createDiv(cls) {
 	var el = document.createElement('div');
-	el.className = cls || '';
+	el.class = cls || '';
 	return el;
 }
 

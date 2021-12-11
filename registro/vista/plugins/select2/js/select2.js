@@ -890,7 +890,7 @@ S2.define('select2/results',[
       )
     );
 
-    $message[0].className += ' select2-results__message';
+    $message[0].class += ' select2-results__message';
 
     this.$results.append($message);
   };
@@ -998,7 +998,7 @@ S2.define('select2/results',[
       text: loadingMore(params)
     };
     var $loading = this.option(loading);
-    $loading.className += ' loading-results';
+    $loading.class += ' loading-results';
 
     this.$results.prepend($loading);
   };
@@ -1009,7 +1009,7 @@ S2.define('select2/results',[
 
   Results.prototype.option = function (data) {
     var option = document.createElement('li');
-    option.className = 'select2-results__option';
+    option.class = 'select2-results__option';
 
     var attrs = {
       'role': 'option',
@@ -1054,7 +1054,7 @@ S2.define('select2/results',[
       var $option = $(option);
 
       var label = document.createElement('strong');
-      label.className = 'select2-results__group';
+      label.class = 'select2-results__group';
 
       var $label = $(label);
       this.template(data, label);

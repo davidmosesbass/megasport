@@ -448,7 +448,7 @@ $.extend( Responsive.prototype, {
 		var dt = this.s.dt;
 		var columns = dt.columns().eq(0).map( function (i) {
 			var column = this.column(i);
-			var className = column.header().className;
+			var class = column.header().class;
 			var priority = dt.settings()[0].aoColumns[i].responsivePriority;
 			var dataPriority = column.header().getAttribute('data-priority');
 
@@ -459,11 +459,11 @@ $.extend( Responsive.prototype, {
 			}
 
 			return {
-				className: className,
+				class: class,
 				includeIn: [],
 				auto:      false,
 				control:   false,
-				never:     className.match(/\bnever\b/) ? true : false,
+				never:     class.match(/\bnever\b/) ? true : false,
 				priority:  priority
 			};
 		} );
@@ -517,14 +517,14 @@ $.extend( Responsive.prototype, {
 		// Loop over each column and determine if it has a responsive control
 		// class
 		columns.each( function ( col, i ) {
-			var classNames = col.className.split(' ');
+			var classs = col.class.split(' ');
 			var hasClass = false;
 
 			// Split the class name up so multiple rules can be applied if needed
-			for ( var k=0, ken=classNames.length ; k<ken ; k++ ) {
-				var className = classNames[k].trim();
+			for ( var k=0, ken=classs.length ; k<ken ; k++ ) {
+				var class = classs[k].trim();
 
-				if ( className === 'all' ) {
+				if ( class === 'all' ) {
 					// Include in all
 					hasClass = true;
 					col.includeIn = $.map( breakpoints, function (a) {
@@ -532,12 +532,12 @@ $.extend( Responsive.prototype, {
 					} );
 					return;
 				}
-				else if ( className === 'none' || col.never ) {
+				else if ( class === 'none' || col.never ) {
 					// Include in none (default) and no auto
 					hasClass = true;
 					return;
 				}
-				else if ( className === 'control' || className === 'dtr-control' ) {
+				else if ( class === 'control' || class === 'dtr-control' ) {
 					// Special column that is only visible, when one of the other
 					// columns is hidden. This is used for the details control
 					hasClass = true;
@@ -549,7 +549,7 @@ $.extend( Responsive.prototype, {
 					// Does this column have a class that matches this breakpoint?
 					var brokenPoint = breakpoint.name.split('-');
 					var re = new RegExp( '(min\\-|max\\-|not\\-)?('+brokenPoint[0]+')(\\-[_a-zA-Z0-9])?' );
-					var match = className.match( re );
+					var match = class.match( re );
 
 					if ( match ) {
 						hasClass = true;
@@ -734,7 +734,7 @@ $.extend( Responsive.prototype, {
 			var dtCol = dt.settings()[0].aoColumns[ i ];
 
 			return {
-				className:   dtCol.sClass,
+				class:   dtCol.sClass,
 				columnIndex: i,
 				data:        dt.cell( rowIdx, i ).render( that.c.orthogonal ),
 				hidden:      dt.column( i ).visible() && !that.s.current[ i ],
@@ -1248,8 +1248,8 @@ Responsive.renderer = {
 
 			var data = $.each( columns, function ( i, col ) {
 				if ( col.hidden ) {
-					var klass = col.className ?
-						'class="'+ col.className +'"' :
+					var klass = col.class ?
+						'class="'+ col.class +'"' :
 						'';
 	
 					$(
@@ -1275,8 +1275,8 @@ Responsive.renderer = {
 	listHidden: function () {
 		return function ( api, rowIdx, columns ) {
 			var data = $.map( columns, function ( col ) {
-				var klass = col.className ?
-					'class="'+ col.className +'"' :
+				var klass = col.class ?
+					'class="'+ col.class +'"' :
 					'';
 
 				return col.hidden ?
@@ -1304,8 +1304,8 @@ Responsive.renderer = {
 
 		return function ( api, rowIdx, columns ) {
 			var data = $.map( columns, function ( col ) {
-				var klass = col.className ?
-					'class="'+ col.className +'"' :
+				var klass = col.class ?
+					'class="'+ col.class +'"' :
 					'';
 
 				return '<tr '+klass+' data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+

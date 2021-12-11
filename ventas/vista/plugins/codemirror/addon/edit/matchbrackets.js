@@ -24,7 +24,7 @@
     var line = cm.getLineHandle(where.line), pos = where.ch - 1;
     var afterCursor = config && config.afterCursor
     if (afterCursor == null)
-      afterCursor = /(^| )cm-fat-cursor($| )/.test(cm.getWrapperElement().className)
+      afterCursor = /(^| )cm-fat-cursor($| )/.test(cm.getWrapperElement().class)
     var re = bracketRegex(config)
 
     // A cursor is defined as between two characters, but in in vim command mode
@@ -88,9 +88,9 @@
       var match = ranges[i].empty() && findMatchingBracket(cm, ranges[i].head, config);
       if (match && (match.match || highlightNonMatching !== false) && cm.getLine(match.from.line).length <= maxHighlightLen) {
         var style = match.match ? "CodeMirror-matchingbracket" : "CodeMirror-nonmatchingbracket";
-        marks.push(cm.markText(match.from, Pos(match.from.line, match.from.ch + 1), {className: style}));
+        marks.push(cm.markText(match.from, Pos(match.from.line, match.from.ch + 1), {class: style}));
         if (match.to && cm.getLine(match.to.line).length <= maxHighlightLen)
-          marks.push(cm.markText(match.to, Pos(match.to.line, match.to.ch + 1), {className: style}));
+          marks.push(cm.markText(match.to, Pos(match.to.line, match.to.ch + 1), {class: style}));
       }
     }
 

@@ -801,9 +801,9 @@
 			}
 
 			var classPrefix = this.c.classPrefix;
-			var className = classPrefix+'-table';
+			var class = classPrefix+'-table';
 			if ( this.c.showWeekNumber ) {
-				className += ' weekNumber';
+				class += ' weekNumber';
 			}
 
 			// Show / hide month icons based on min/max
@@ -821,7 +821,7 @@
 					.css( 'display', overMax ? 'none' : 'block' );
 			}
 
-			return '<table class="'+className+'">' +
+			return '<table class="'+class+'">' +
 					'<thead>'+
 						this._htmlMonthHead() +
 					'</thead>'+
@@ -950,7 +950,7 @@
 				function (i) { return i; } :
 				this._pad;
 			var classPrefix = this.c.classPrefix;
-			var className = classPrefix+'-table';
+			var class = classPrefix+'-table';
 			var i18n = this.c.i18n;
 
 			if ( ! container.length ) {
@@ -959,7 +959,7 @@
 
 			var a = '';
 			var span = 10;
-			var button = function (value, label, className) {
+			var button = function (value, label, class) {
 				// Shift the value for PM
 				if ( count === 12 && typeof value === 'number' ) {
 					if (val >= 12 ) {
@@ -982,8 +982,8 @@
 					selected += ' disabled';
 				}
 
-				if ( className ) {
-					selected += ' '+className;
+				if ( class ) {
+					selected += ' '+class;
 				}
 
 				return '<td class="selectable '+selected+'">' +
@@ -1036,7 +1036,7 @@
 				a += '</tr>';
 				
 				// Slight hack to allow for the different number of columns
-				a += '</tbody></thead><table class="'+className+' '+className+'-nospace"><tbody>';
+				a += '</tbody></thead><table class="'+class+' '+class+'-nospace"><tbody>';
 
 				var start = range !== null ?
 					range :
@@ -1054,7 +1054,7 @@
 			container
 				.empty()
 				.append(
-					'<table class="'+className+'">'+
+					'<table class="'+class+'">'+
 						'<thead><tr><th colspan="'+span+'">'+
 							i18n[unit] +
 						'</th></tr></thead>'+

@@ -14,7 +14,7 @@
 
   function showTooltip(cm, e, content) {
     var tt = document.createElement("div");
-    tt.className = "CodeMirror-lint-tooltip cm-s-" + cm.options.theme;
+    tt.class = "CodeMirror-lint-tooltip cm-s-" + cm.options.theme;
     tt.appendChild(content.cloneNode(true));
     if (cm.state.lint.options.selfContain)
       cm.getWrapperElement().appendChild(tt);
@@ -83,10 +83,10 @@
 
   function makeMarker(cm, labels, severity, multiple, tooltips) {
     var marker = document.createElement("div"), inner = marker;
-    marker.className = "CodeMirror-lint-marker CodeMirror-lint-marker-" + severity;
+    marker.class = "CodeMirror-lint-marker CodeMirror-lint-marker-" + severity;
     if (multiple) {
       inner = marker.appendChild(document.createElement("div"));
-      inner.className = "CodeMirror-lint-marker CodeMirror-lint-marker-multiple";
+      inner.class = "CodeMirror-lint-marker CodeMirror-lint-marker-multiple";
     }
 
     if (tooltips != false) CodeMirror.on(inner, "mouseover", function(e) {
@@ -114,7 +114,7 @@
     var severity = ann.severity;
     if (!severity) severity = "error";
     var tip = document.createElement("div");
-    tip.className = "CodeMirror-lint-message CodeMirror-lint-message-" + severity;
+    tip.class = "CodeMirror-lint-message CodeMirror-lint-message-" + severity;
     if (typeof ann.messageHTML != 'undefined') {
       tip.innerHTML = ann.messageHTML;
     } else {
@@ -187,7 +187,7 @@
         if (state.hasGutter) tipLabel.appendChild(annotationTooltip(ann));
 
         if (ann.to) state.marked.push(cm.markText(ann.from, ann.to, {
-          className: "CodeMirror-lint-mark CodeMirror-lint-mark-" + severity,
+          class: "CodeMirror-lint-mark CodeMirror-lint-mark-" + severity,
           __annotation: ann
         }));
       }
@@ -218,7 +218,7 @@
 
   function onMouseOver(cm, e) {
     var target = e.target || e.srcElement;
-    if (!/\bCodeMirror-lint-mark-/.test(target.className)) return;
+    if (!/\bCodeMirror-lint-mark-/.test(target.class)) return;
     var box = target.getBoundingClientRect(), x = (box.left + box.right) / 2, y = (box.top + box.bottom) / 2;
     var spans = cm.findMarksAt(cm.coordsChar({left: x, top: y}, "client"));
 

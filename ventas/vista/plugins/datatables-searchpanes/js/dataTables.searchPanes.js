@@ -107,9 +107,9 @@
             var colOpts = this.s.colOpts;
             var clear = $('<button type="button">X</button>').addClass(this.classes.paneButton);
             $(clear).text(table.i18n('searchPanes.clearPane', 'X'));
-            this.dom.container.addClass(colOpts.className);
-            this.dom.container.addClass((this.customPaneSettings !== null && this.customPaneSettings.className !== undefined)
-                ? this.customPaneSettings.className
+            this.dom.container.addClass(colOpts.class);
+            this.dom.container.addClass((this.customPaneSettings !== null && this.customPaneSettings.class !== undefined)
+                ? this.customPaneSettings.class
                 : '');
             // Set the value of name incase ordering is desired
             if (this.s.colOpts.name !== undefined) {
@@ -535,7 +535,7 @@
          * @param sort the value to be sorted in the pane table
          * @param type the value of which the type is to be derived from
          */
-        SearchPane.prototype._addRow = function (display, filter, shown, total, sort, type, className) {
+        SearchPane.prototype._addRow = function (display, filter, shown, total, sort, type, class) {
             var index;
             for (var _i = 0, _a = this.s.indexes; _i < _a.length; _i++) {
                 var entry = _a[_i];
@@ -548,7 +548,7 @@
                 this.s.indexes.push({ filter: filter, index: index });
             }
             return this.s.dtPane.row.add({
-                className: className,
+                class: class,
                 display: display !== '' ?
                     display :
                     this.s.colOpts.emptyMessage !== false ?
@@ -749,7 +749,7 @@
             this.s.dtPane = $(this.dom.dtP).DataTable($.extend(true, {
                 columnDefs: [
                     {
-                        className: 'dtsp-nameColumn',
+                        class: 'dtsp-nameColumn',
                         data: 'display',
                         render: function (data, type, row) {
                             if (type === 'sort') {
@@ -789,7 +789,7 @@
                             null
                     },
                     {
-                        className: 'dtsp-countColumn ' + this.classes.badgePill,
+                        class: 'dtsp-countColumn ' + this.classes.badgePill,
                         data: 'shown',
                         orderData: [1, 2],
                         targets: 1,
@@ -814,7 +814,7 @@
             }, this.c.dtOpts, colOpts !== undefined ? colOpts.dtOpts : {}, (this.s.colOpts.options !== undefined || !this.colExists)
                 ? {
                     createdRow: function (row, data, dataIndex) {
-                        $(row).addClass(data.className);
+                        $(row).addClass(data.class);
                     }
                 }
                 : undefined, (this.customPaneSettings !== null && this.customPaneSettings.dtOpts !== undefined)
@@ -1054,7 +1054,7 @@
                 // Initialise the object which is to be placed in the row
                 var insert = comp.label !== '' ? comp.label : this.c.emptyMessage;
                 var comparisonObj = {
-                    className: comp.className,
+                    class: comp.class,
                     display: insert,
                     filter: typeof comp.value === 'function' ? comp.value : [],
                     shown: 0,
@@ -1083,7 +1083,7 @@
                 }
                 // If cascadePanes is not active or if it is and the comparisonObj should be shown then add it to the pane
                 if (!this.c.cascadePanes || (this.c.cascadePanes && comparisonObj.shown !== 0)) {
-                    rows.push(this._addRow(comparisonObj.display, comparisonObj.filter, comparisonObj.shown, comparisonObj.total, comparisonObj.sort, comparisonObj.type, comparisonObj.className));
+                    rows.push(this._addRow(comparisonObj.display, comparisonObj.filter, comparisonObj.shown, comparisonObj.total, comparisonObj.sort, comparisonObj.type, comparisonObj.class));
                 }
             }
             return rows;

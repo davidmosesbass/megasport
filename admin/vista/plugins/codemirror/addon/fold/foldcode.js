@@ -69,7 +69,7 @@
       var text = document.createTextNode(widget);
       widget = document.createElement("span");
       widget.appendChild(text);
-      widget.className = "CodeMirror-foldmarker";
+      widget.class = "CodeMirror-foldmarker";
     } else if (widget) {
       widget = widget.cloneNode(true)
     }

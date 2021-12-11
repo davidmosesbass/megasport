@@ -12,7 +12,7 @@
   "use strict";
 
   CodeMirror.defineExtension("annotateScrollbar", function(options) {
-    if (typeof options == "string") options = {className: options};
+    if (typeof options == "string") options = {class: options};
     return new Annotation(this, options);
   });
 
@@ -109,7 +109,7 @@
       var elt = frag.appendChild(document.createElement("div"));
       elt.style.cssText = "position: absolute; right: 0px; width: " + Math.max(cm.display.barWidth - 1, 2) + "px; top: "
         + (top + this.buttonHeight) + "px; height: " + height + "px";
-      elt.className = this.options.className;
+      elt.class = this.options.class;
       if (ann.id) {
         elt.setAttribute("annotation-id", ann.id);
       }

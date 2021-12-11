@@ -350,8 +350,8 @@
     return container ? container.querySelector(selectorString) : null;
   };
 
-  var elementByClass = function elementByClass(className) {
-    return elementBySelector(".".concat(className));
+  var elementByClass = function elementByClass(class) {
+    return elementBySelector(".".concat(class));
   };
 
   var getPopup = function getPopup() {
@@ -459,12 +459,12 @@
       });
     }
   };
-  var hasClass = function hasClass(elem, className) {
-    if (!className) {
+  var hasClass = function hasClass(elem, class) {
+    if (!class) {
       return false;
     }
 
-    var classList = className.split(/\s+/);
+    var classList = class.split(/\s+/);
 
     for (var i = 0; i < classList.length; i++) {
       if (!elem.classList.contains(classList[i])) {
@@ -476,22 +476,22 @@
   };
 
   var removeCustomClasses = function removeCustomClasses(elem, params) {
-    toArray(elem.classList).forEach(function (className) {
-      if (!(objectValues(swalClasses).indexOf(className) !== -1) && !(objectValues(iconTypes).indexOf(className) !== -1) && !(objectValues(params.showClass).indexOf(className) !== -1)) {
-        elem.classList.remove(className);
+    toArray(elem.classList).forEach(function (class) {
+      if (!(objectValues(swalClasses).indexOf(class) !== -1) && !(objectValues(iconTypes).indexOf(class) !== -1) && !(objectValues(params.showClass).indexOf(class) !== -1)) {
+        elem.classList.remove(class);
       }
     });
   };
 
-  var applyCustomClass = function applyCustomClass(elem, params, className) {
+  var applyCustomClass = function applyCustomClass(elem, params, class) {
     removeCustomClasses(elem, params);
 
-    if (params.customClass && params.customClass[className]) {
-      if (typeof params.customClass[className] !== 'string' && !params.customClass[className].forEach) {
-        return warn("Invalid type of customClass.".concat(className, "! Expected string or iterable object, got \"").concat(_typeof(params.customClass[className]), "\""));
+    if (params.customClass && params.customClass[class]) {
+      if (typeof params.customClass[class] !== 'string' && !params.customClass[class].forEach) {
+        return warn("Invalid type of customClass.".concat(class, "! Expected string or iterable object, got \"").concat(_typeof(params.customClass[class]), "\""));
       }
 
-      addClass(elem, params.customClass[className]);
+      addClass(elem, params.customClass[class]);
     }
   };
   function getInput(content, inputType) {
@@ -537,13 +537,13 @@
       classList = classList.split(/\s+/).filter(Boolean);
     }
 
-    classList.forEach(function (className) {
+    classList.forEach(function (class) {
       if (target.forEach) {
         target.forEach(function (elem) {
-          condition ? elem.classList.add(className) : elem.classList.remove(className);
+          condition ? elem.classList.add(class) : elem.classList.remove(class);
         });
       } else {
-        condition ? target.classList.add(className) : target.classList.remove(className);
+        condition ? target.classList.add(class) : target.classList.remove(class);
       }
     });
   };
@@ -553,9 +553,9 @@
   var removeClass = function removeClass(target, classList) {
     toggleClass(target, classList, false);
   };
-  var getChildByClass = function getChildByClass(elem, className) {
+  var getChildByClass = function getChildByClass(elem, class) {
     for (var i = 0; i < elem.childNodes.length; i++) {
-      if (hasClass(elem.childNodes[i], className)) {
+      if (hasClass(elem.childNodes[i], class)) {
         return elem.childNodes[i];
       }
     }
@@ -727,7 +727,7 @@
     }
 
     var container = document.createElement('div');
-    container.className = swalClasses.container;
+    container.class = swalClasses.container;
 
     if (oldContainerExisted) {
       addClass(container, swalClasses['no-transition']);
@@ -801,7 +801,7 @@
 
   var measureScrollbar = function measureScrollbar() {
     var scrollDiv = document.createElement('div');
-    scrollDiv.className = swalClasses['scrollbar-measure'];
+    scrollDiv.class = swalClasses['scrollbar-measure'];
     document.body.appendChild(scrollDiv);
     var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
@@ -865,7 +865,7 @@
     button.setAttribute('aria-label', params["".concat(buttonType, "ButtonAriaLabel")]); // ARIA label
     // Add buttons custom classes
 
-    button.className = swalClasses[buttonType];
+    button.class = swalClasses[buttonType];
     applyCustomClass(button, params, "".concat(buttonType, "Button"));
     addClass(button, params["".concat(buttonType, "ButtonClass")]);
   }
@@ -949,7 +949,7 @@
 
       setAttributes(inputType, params.inputAttributes); // set class
 
-      inputContainer.className = inputClass;
+      inputContainer.class = inputClass;
 
       if (rerender) {
         hide(inputContainer);
@@ -1030,7 +1030,7 @@
       var label = document.createElement('label');
       var labelClass = swalClasses['input-label'];
       label.setAttribute('for', input.id);
-      label.className = labelClass;
+      label.class = labelClass;
       addClass(label, params.customClass.inputLabel);
       label.innerText = params.inputLabel;
       prependTo.insertAdjacentElement('beforebegin', label);
@@ -1285,7 +1285,7 @@
     applyNumericalStyle(image, 'width', params.imageWidth);
     applyNumericalStyle(image, 'height', params.imageHeight); // Class
 
-    image.className = swalClasses.image;
+    image.class = swalClasses.image;
     applyCustomClass(image, params, 'image');
   };
 
@@ -1460,7 +1460,7 @@
 
   var addClasses = function addClasses(popup, params) {
     // Default Class + showClass when updating Swal.update({})
-    popup.className = "".concat(swalClasses.popup, " ").concat(isVisible(popup) ? params.showClass.popup : '');
+    popup.class = "".concat(swalClasses.popup, " ").concat(isVisible(popup) ? params.showClass.popup : '');
 
     if (params.toast) {
       addClass([document.documentElement, document.body], swalClasses['toast-shown']);
@@ -1603,7 +1603,7 @@
 
     if (buttonToReplace) {
       hide(buttonToReplace);
-      loader.setAttribute('data-button-to-replace', buttonToReplace.className);
+      loader.setAttribute('data-button-to-replace', buttonToReplace.class);
     }
 
     loader.parentNode.insertBefore(loader, buttonToReplace);
@@ -1965,7 +1965,7 @@
 
     var domCache = privateProps.domCache.get(this);
     hide(domCache.loader);
-    var buttonToReplace = domCache.popup.getElementsByClassName(domCache.loader.getAttribute('data-button-to-replace'));
+    var buttonToReplace = domCache.popup.getElementsByclass(domCache.loader.getAttribute('data-button-to-replace'));
 
     if (buttonToReplace.length) {
       show(buttonToReplace[0], 'inline-block');
@@ -2331,7 +2331,7 @@
     var domCache = privateProps.domCache.get(this);
     var params = privateProps.innerParams.get(this);
     setInnerHtml(domCache.validationMessage, error);
-    domCache.validationMessage.className = swalClasses['validation-message'];
+    domCache.validationMessage.class = swalClasses['validation-message'];
 
     if (params.customClass && params.customClass.validationMessage) {
       addClass(domCache.validationMessage, params.customClass.validationMessage);
@@ -2910,7 +2910,7 @@
 
         var label = document.createElement('span');
         setInnerHtml(label, radioLabel);
-        label.className = swalClasses.label;
+        label.class = swalClasses.label;
         radioLabelElement.appendChild(radioInput);
         radioLabelElement.appendChild(label);
         radio.appendChild(radioLabelElement);

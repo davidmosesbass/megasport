@@ -7424,7 +7424,7 @@ var defaultOptions = {
   fallback: function fallback() {
     // This code should pass in IE7... :(
     var messageElement;
-    this.element.className = "".concat(this.element.className, " dz-browser-not-supported");
+    this.element.class = "".concat(this.element.class, " dz-browser-not-supported");
 
     var _iterator = options_createForOfIteratorHelper(this.element.getElementsByTagName("div"), true),
         _step;
@@ -7433,9 +7433,9 @@ var defaultOptions = {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var child = _step.value;
 
-        if (/(^| )dz-message($| )/.test(child.className)) {
+        if (/(^| )dz-message($| )/.test(child.class)) {
           messageElement = child;
-          child.className = "dz-message"; // Removes the 'dz-default' class
+          child.class = "dz-message"; // Removes the 'dz-default' class
 
           break;
         }
@@ -8075,7 +8075,7 @@ var Dropzone = /*#__PURE__*/function (_Emitter) {
             _this2.hiddenFileInput.setAttribute("multiple", "multiple");
           }
 
-          _this2.hiddenFileInput.className = "dz-hidden-input";
+          _this2.hiddenFileInput.class = "dz-hidden-input";
 
           if (_this2.options.acceptedFiles !== null) {
             _this2.hiddenFileInput.setAttribute("accept", _this2.options.acceptedFiles);
@@ -8366,7 +8366,7 @@ var Dropzone = /*#__PURE__*/function (_Emitter) {
           for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
             var el = _step4.value;
 
-            if (/(^| )fallback($| )/.test(el.className)) {
+            if (/(^| )fallback($| )/.test(el.class)) {
               return el;
             }
           }
@@ -9821,7 +9821,7 @@ Dropzone.discover = function () {
           for (_iterator23.s(); !(_step23 = _iterator23.n()).done;) {
             var el = _step23.value;
 
-            if (/(^| )dropzone($| )/.test(el.className)) {
+            if (/(^| )dropzone($| )/.test(el.class)) {
               result.push(dropzones.push(el));
             } else {
               result.push(undefined);

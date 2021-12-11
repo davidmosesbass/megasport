@@ -73,7 +73,7 @@ temporary images load their data.
     }
 
     function getGenerateTempImg(tempImg, canvasOrSvgSource) {
-        tempImg.sourceDescription = '<info className="' + canvasOrSvgSource.className + '" tagName="' + canvasOrSvgSource.tagName + '" id="' + canvasOrSvgSource.id + '">';
+        tempImg.sourceDescription = '<info class="' + canvasOrSvgSource.class + '" tagName="' + canvasOrSvgSource.tagName + '" id="' + canvasOrSvgSource.id + '">';
         tempImg.sourceComponent = canvasOrSvgSource;
 
         return function doGenerateTempImg(successCallbackFunc, failureCallbackFunc) {

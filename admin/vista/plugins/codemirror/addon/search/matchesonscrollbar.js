@@ -12,7 +12,7 @@
   "use strict";
 
   CodeMirror.defineExtension("showMatchesOnScrollbar", function(query, caseFold, options) {
-    if (typeof options == "string") options = {className: options};
+    if (typeof options == "string") options = {class: options};
     if (!options) options = {};
     return new SearchAnnotation(this, query, caseFold, options);
   });
@@ -22,7 +22,7 @@
     this.options = options;
     var annotateOptions = {listenForChanges: false};
     for (var prop in options) annotateOptions[prop] = options[prop];
-    if (!annotateOptions.className) annotateOptions.className = "CodeMirror-search-match";
+    if (!annotateOptions.class) annotateOptions.class = "CodeMirror-search-match";
     this.annotation = cm.annotateScrollbar(annotateOptions);
     this.query = query;
     this.caseFold = caseFold;

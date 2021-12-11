@@ -354,7 +354,7 @@ CodeMirror.defineMode("pug", function (config) {
     }
   }
 
-  function className(stream) {
+  function class(stream) {
     if (stream.match(/^\.([\w-]+)/)) {
       return CLASS;
     }
@@ -566,7 +566,7 @@ CodeMirror.defineMode("pug", function (config) {
       || filter(stream, state)
       || code(stream, state)
       || id(stream)
-      || className(stream)
+      || class(stream)
       || attrs(stream, state)
       || attributesBlock(stream, state)
       || indent(stream)

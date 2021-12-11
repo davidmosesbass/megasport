@@ -407,7 +407,7 @@ $.extend( KeyTable.prototype, {
 
 		var cell = this.s.lastFocus.cell;
 
-		$( cell.node() ).removeClass( this.c.className );
+		$( cell.node() ).removeClass( this.c.class );
 		this.s.lastFocus = null;
 
 		if ( ! noEvents ) {
@@ -753,7 +753,7 @@ $.extend( KeyTable.prototype, {
 		this._removeOtherFocus();
 
 		var node = $( cell.node() );
-		node.addClass( this.c.className );
+		node.addClass( this.c.class );
 
 		this._updateFixedColumns(column);
 
@@ -1155,7 +1155,7 @@ KeyTable.defaults = {
 	 * Class to give to the focused cell
 	 * @type {String}
 	 */
-	className: 'focus',
+	class: 'focus',
 
 	/**
 	 * Enable or disable clipboard support

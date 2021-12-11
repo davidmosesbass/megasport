@@ -19,7 +19,7 @@
     }
     if (val && val.length) {
       cm.state.rulerDiv = cm.display.lineSpace.parentElement.insertBefore(document.createElement("div"), cm.display.lineSpace)
-      cm.state.rulerDiv.className = "CodeMirror-rulers"
+      cm.state.rulerDiv.class = "CodeMirror-rulers"
       drawRulers(cm)
       cm.on("refresh", drawRulers)
     }
@@ -33,13 +33,13 @@
     cm.state.rulerDiv.style.minHeight = (cm.display.scroller.offsetHeight + 30) + "px";
     for (var i = 0; i < val.length; i++) {
       var elt = document.createElement("div");
-      elt.className = "CodeMirror-ruler";
+      elt.class = "CodeMirror-ruler";
       var col, conf = val[i];
       if (typeof conf == "number") {
         col = conf;
       } else {
         col = conf.column;
-        if (conf.className) elt.className += " " + conf.className;
+        if (conf.class) elt.class += " " + conf.class;
         if (conf.color) elt.style.borderColor = conf.color;
         if (conf.lineStyle) elt.style.borderLeftStyle = conf.lineStyle;
         if (conf.width) elt.style.borderLeftWidth = conf.width;

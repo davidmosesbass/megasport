@@ -8,6 +8,7 @@
     }
 ?>
 <head>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Administracion | MegaSport</title>
@@ -111,8 +112,8 @@
           <input type="password" name="password" placeholder="Password">
         </div> -->
         <div class="col">
-          <button class="btn btn-success btn-block">
-            Añadir Producto
+          <button class="btn btn-success btn-block text-bold">
+            <p class="h3">Añadir Producto</p> 
           </button>
         </div>
       </div>

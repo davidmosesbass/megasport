@@ -275,11 +275,11 @@
     if (search.charAt(0) == "." || search.charAt(0) == identifierQuote) {
       start = nameCompletion(cur, token, result, editor);
     } else {
-      var objectOrClass = function(w, className) {
+      var objectOrClass = function(w, class) {
         if (typeof w === "object") {
-          w.className = className;
+          w.class = class;
         } else {
-          w = { text: w, className: className };
+          w = { text: w, class: class };
         }
         return w;
       };

@@ -63,7 +63,7 @@
   function marker(spec) {
     if (typeof spec == "string") {
       var elt = document.createElement("div");
-      elt.className = spec + " CodeMirror-guttermarker-subtle";
+      elt.class = spec + " CodeMirror-guttermarker-subtle";
       return elt;
     } else {
       return spec.cloneNode(true);
@@ -74,7 +74,7 @@
     var opts = cm.state.foldGutter.options, cur = from - 1;
     var minSize = cm.foldOption(opts, "minFoldSize");
     var func = cm.foldOption(opts, "rangeFinder");
-    // we can reuse the built-in indicator element if its className matches the new state
+    // we can reuse the built-in indicator element if its class matches the new state
     var clsFolded = typeof opts.indicatorFolded == "string" && classTest(opts.indicatorFolded);
     var clsOpen = typeof opts.indicatorOpen == "string" && classTest(opts.indicatorOpen);
     cm.eachLine(from, to, function(line) {
@@ -83,13 +83,13 @@
       var old = line.gutterMarkers;
       if (old) old = old[opts.gutter];
       if (isFolded(cm, cur)) {
-        if (clsFolded && old && clsFolded.test(old.className)) return;
+        if (clsFolded && old && clsFolded.test(old.class)) return;
         mark = marker(opts.indicatorFolded);
       } else {
         var pos = Pos(cur, 0);
         var range = func && func(cm, pos);
         if (range && range.to.line - range.from.line >= minSize) {
-          if (clsOpen && old && clsOpen.test(old.className)) return;
+          if (clsOpen && old && clsOpen.test(old.class)) return;
           mark = marker(opts.indicatorOpen);
         }
       }

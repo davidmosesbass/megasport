@@ -1187,7 +1187,7 @@ A VERTICAL event
 .fc {
 
   /* fg events */
-  /* (the mirror segs are put into a separate container with same classname, */
+  /* (the mirror segs are put into a separate container with same class, */
   /* and they must be after the normal seg container to appear at a higher z-index) */
 
 }

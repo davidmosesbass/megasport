@@ -631,7 +631,7 @@
 
       if (typeof $__default['default'].fn.overlayScrollbars !== 'undefined') {
         $controlSidebar.overlayScrollbars({
-          className: this._config.scrollbarTheme,
+          class: this._config.scrollbarTheme,
           sizeAutoCapable: true,
           scrollbars: {
             autoHide: this._config.scrollbarAutoHide,
@@ -1684,7 +1684,7 @@
 
       if (typeof $__default['default'].fn.overlayScrollbars !== 'undefined') {
         $__default['default'](SELECTOR_SIDEBAR$1).overlayScrollbars({
-          className: this._config.scrollbarTheme,
+          class: this._config.scrollbarTheme,
           sizeAutoCapable: true,
           scrollbars: {
             autoHide: this._config.scrollbarAutoHide,

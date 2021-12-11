@@ -2166,25 +2166,25 @@ $.effects.animateClass = function( value, duration, easing, callback ) {
 
 $.fn.extend( {
 	addClass: ( function( orig ) {
-		return function( classNames, speed, easing, callback ) {
+		return function( classs, speed, easing, callback ) {
 			return speed ?
 				$.effects.animateClass.call( this,
-					{ add: classNames }, speed, easing, callback ) :
+					{ add: classs }, speed, easing, callback ) :
 				orig.apply( this, arguments );
 		};
 	} )( $.fn.addClass ),
 
 	removeClass: ( function( orig ) {
-		return function( classNames, speed, easing, callback ) {
+		return function( classs, speed, easing, callback ) {
 			return arguments.length > 1 ?
 				$.effects.animateClass.call( this,
-					{ remove: classNames }, speed, easing, callback ) :
+					{ remove: classs }, speed, easing, callback ) :
 				orig.apply( this, arguments );
 		};
 	} )( $.fn.removeClass ),
 
 	toggleClass: ( function( orig ) {
-		return function( classNames, force, speed, easing, callback ) {
+		return function( classs, force, speed, easing, callback ) {
 			if ( typeof force === "boolean" || force === undefined ) {
 				if ( !speed ) {
 
@@ -2192,14 +2192,14 @@ $.fn.extend( {
 					return orig.apply( this, arguments );
 				} else {
 					return $.effects.animateClass.call( this,
-						( force ? { add: classNames } : { remove: classNames } ),
+						( force ? { add: classs } : { remove: classs } ),
 						speed, easing, callback );
 				}
 			} else {
 
 				// Without force parameter
 				return $.effects.animateClass.call( this,
-					{ toggle: classNames }, force, speed, easing );
+					{ toggle: classs }, force, speed, easing );
 			}
 		};
 	} )( $.fn.toggleClass ),
@@ -2815,7 +2815,7 @@ $.fn.extend( {
 			startPosition = element.offset(),
 			transfer = $( "<div class='ui-effects-transfer'></div>" )
 				.appendTo( "body" )
-				.addClass( options.className )
+				.addClass( options.class )
 				.css( {
 					top: startPosition.top - fixTop,
 					left: startPosition.left - fixLeft,
@@ -4883,7 +4883,7 @@ var widgetsAccordion = $.widget( "ui.accordion", {
 
 		// Work around for rendering bug in IE (#5421)
 		if ( toHide.length ) {
-			toHide.parent()[ 0 ].className = toHide.parent()[ 0 ].className;
+			toHide.parent()[ 0 ].class = toHide.parent()[ 0 ].class;
 		}
 		this._trigger( "activate", null, data );
 	}
@@ -7307,7 +7307,7 @@ function Datepicker() {
 
 $.extend( Datepicker.prototype, {
 	/* Class name added to elements to indicate already configured with a date picker. */
-	markerClassName: "hasDatepicker",
+	markerclass: "hasDatepicker",
 
 	//Keep track of the maximum number of rows displayed (see #7043)
 	maxRows: 4,
@@ -7363,11 +7363,11 @@ $.extend( Datepicker.prototype, {
 		var input = $( target );
 		inst.append = $( [] );
 		inst.trigger = $( [] );
-		if ( input.hasClass( this.markerClassName ) ) {
+		if ( input.hasClass( this.markerclass ) ) {
 			return;
 		}
 		this._attachments( input, inst );
-		input.addClass( this.markerClassName ).on( "keydown", this._doKeyDown ).
+		input.addClass( this.markerclass ).on( "keydown", this._doKeyDown ).
 			on( "keypress", this._doKeyPress ).on( "keyup", this._doKeyUp );
 		this._autoSize( inst );
 		$.data( target, "datepicker", inst );
@@ -7457,10 +7457,10 @@ $.extend( Datepicker.prototype, {
 	/* Attach an inline date picker to a div. */
 	_inlineDatepicker: function( target, inst ) {
 		var divSpan = $( target );
-		if ( divSpan.hasClass( this.markerClassName ) ) {
+		if ( divSpan.hasClass( this.markerclass ) ) {
 			return;
 		}
-		divSpan.addClass( this.markerClassName ).append( inst.dpDiv );
+		divSpan.addClass( this.markerclass ).append( inst.dpDiv );
 		$.data( target, "datepicker", inst );
 		this._setDate( inst, this._getDefaultDate( inst ), true );
 		this._updateDatepicker( inst );
@@ -7536,7 +7536,7 @@ $.extend( Datepicker.prototype, {
 			$target = $( target ),
 			inst = $.data( target, "datepicker" );
 
-		if ( !$target.hasClass( this.markerClassName ) ) {
+		if ( !$target.hasClass( this.markerclass ) ) {
 			return;
 		}
 
@@ -7545,13 +7545,13 @@ $.extend( Datepicker.prototype, {
 		if ( nodeName === "input" ) {
 			inst.append.remove();
 			inst.trigger.remove();
-			$target.removeClass( this.markerClassName ).
+			$target.removeClass( this.markerclass ).
 				off( "focus", this._showDatepicker ).
 				off( "keydown", this._doKeyDown ).
 				off( "keypress", this._doKeyPress ).
 				off( "keyup", this._doKeyUp );
 		} else if ( nodeName === "div" || nodeName === "span" ) {
-			$target.removeClass( this.markerClassName ).empty();
+			$target.removeClass( this.markerclass ).empty();
 		}
 
 		if ( datepicker_instActive === inst ) {
@@ -7567,7 +7567,7 @@ $.extend( Datepicker.prototype, {
 			$target = $( target ),
 			inst = $.data( target, "datepicker" );
 
-		if ( !$target.hasClass( this.markerClassName ) ) {
+		if ( !$target.hasClass( this.markerclass ) ) {
 			return;
 		}
 
@@ -7595,7 +7595,7 @@ $.extend( Datepicker.prototype, {
 			$target = $( target ),
 			inst = $.data( target, "datepicker" );
 
-		if ( !$target.hasClass( this.markerClassName ) ) {
+		if ( !$target.hasClass( this.markerclass ) ) {
 			return;
 		}
 
@@ -8120,10 +8120,10 @@ $.extend( Datepicker.prototype, {
 
 		if ( ( ( $target[ 0 ].id !== $.datepicker._mainDivId &&
 				$target.parents( "#" + $.datepicker._mainDivId ).length === 0 &&
-				!$target.hasClass( $.datepicker.markerClassName ) &&
+				!$target.hasClass( $.datepicker.markerclass ) &&
 				!$target.closest( "." + $.datepicker._triggerClass ).length &&
 				$.datepicker._datepickerShowing && !( $.datepicker._inDialog && $.blockUI ) ) ) ||
-			( $target.hasClass( $.datepicker.markerClassName ) && $.datepicker._curInst !== inst ) ) {
+			( $target.hasClass( $.datepicker.markerclass ) && $.datepicker._curInst !== inst ) ) {
 				$.datepicker._hideDatepicker();
 		}
 	},
@@ -9185,10 +9185,10 @@ function datepicker_bindHover( dpDiv ) {
 	var selector = "button, .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar td a";
 	return dpDiv.on( "mouseout", selector, function() {
 			$( this ).removeClass( "ui-state-hover" );
-			if ( this.className.indexOf( "ui-datepicker-prev" ) !== -1 ) {
+			if ( this.class.indexOf( "ui-datepicker-prev" ) !== -1 ) {
 				$( this ).removeClass( "ui-datepicker-prev-hover" );
 			}
-			if ( this.className.indexOf( "ui-datepicker-next" ) !== -1 ) {
+			if ( this.class.indexOf( "ui-datepicker-next" ) !== -1 ) {
 				$( this ).removeClass( "ui-datepicker-next-hover" );
 			}
 		} )
@@ -9199,10 +9199,10 @@ function datepicker_handleMouseover() {
 	if ( !$.datepicker._isDisabledDatepicker( datepicker_instActive.inline ? datepicker_instActive.dpDiv.parent()[ 0 ] : datepicker_instActive.input[ 0 ] ) ) {
 		$( this ).parents( ".ui-datepicker-calendar" ).find( "a" ).removeClass( "ui-state-hover" );
 		$( this ).addClass( "ui-state-hover" );
-		if ( this.className.indexOf( "ui-datepicker-prev" ) !== -1 ) {
+		if ( this.class.indexOf( "ui-datepicker-prev" ) !== -1 ) {
 			$( this ).addClass( "ui-datepicker-prev-hover" );
 		}
-		if ( this.className.indexOf( "ui-datepicker-next" ) !== -1 ) {
+		if ( this.class.indexOf( "ui-datepicker-next" ) !== -1 ) {
 			$( this ).addClass( "ui-datepicker-next-hover" );
 		}
 	}
@@ -9587,7 +9587,7 @@ $.widget( "ui.draggable", $.ui.mouse, {
 		if ( this.options.addClasses ) {
 			this._addClass( "ui-draggable" );
 		}
-		this._setHandleClassName();
+		this._setHandleclass();
 
 		this._mouseInit();
 	},
@@ -9595,8 +9595,8 @@ $.widget( "ui.draggable", $.ui.mouse, {
 	_setOption: function( key, value ) {
 		this._super( key, value );
 		if ( key === "handle" ) {
-			this._removeHandleClassName();
-			this._setHandleClassName();
+			this._removeHandleclass();
+			this._setHandleclass();
 		}
 	},
 
@@ -9605,7 +9605,7 @@ $.widget( "ui.draggable", $.ui.mouse, {
 			this.destroyOnClear = true;
 			return;
 		}
-		this._removeHandleClassName();
+		this._removeHandleclass();
 		this._mouseDestroy();
 	},
 
@@ -9864,13 +9864,13 @@ $.widget( "ui.draggable", $.ui.mouse, {
 			true;
 	},
 
-	_setHandleClassName: function() {
+	_setHandleclass: function() {
 		this.handleElement = this.options.handle ?
 			this.element.find( this.options.handle ) : this.element;
 		this._addClass( this.handleElement, "ui-draggable-handle" );
 	},
 
-	_removeHandleClassName: function() {
+	_removeHandleclass: function() {
 		this._removeClass( this.handleElement, "ui-draggable-handle" );
 	},
 
@@ -11060,8 +11060,8 @@ $.widget( "ui.resizable", $.ui.mouse, {
 
 		this._handles.on( "mouseover", function() {
 			if ( !that.resizing ) {
-				if ( this.className ) {
-					axis = this.className.match( /ui-resizable-(se|sw|ne|nw|n|e|s|w)/i );
+				if ( this.class ) {
+					axis = this.class.match( /ui-resizable-(se|sw|ne|nw|n|e|s|w)/i );
 				}
 				that.axis = axis && axis[ 1 ] ? axis[ 1 ] : "se";
 			}
@@ -15281,7 +15281,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 		//Initialize mouse events for interaction
 		this._mouseInit();
 
-		this._setHandleClassName();
+		this._setHandleclass();
 
 		//We're ready to go
 		this.ready = true;
@@ -15292,11 +15292,11 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 		this._super( key, value );
 
 		if ( key === "handle" ) {
-			this._setHandleClassName();
+			this._setHandleclass();
 		}
 	},
 
-	_setHandleClassName: function() {
+	_setHandleclass: function() {
 		var that = this;
 		this._removeClass( this.element.find( ".ui-sortable-handle" ), "ui-sortable-handle" );
 		$.each( this.items, function() {
@@ -15878,7 +15878,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 
 	refresh: function( event ) {
 		this._refreshItems( event );
-		this._setHandleClassName();
+		this._setHandleclass();
 		this.refreshPositions();
 		return this;
 	},
@@ -16053,11 +16053,11 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 
 	_createPlaceholder: function( that ) {
 		that = that || this;
-		var className,
+		var class,
 			o = that.options;
 
 		if ( !o.placeholder || o.placeholder.constructor === String ) {
-			className = o.placeholder;
+			class = o.placeholder;
 			o.placeholder = {
 				element: function() {
 
@@ -16065,7 +16065,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 						element = $( "<" + nodeName + ">", that.document[ 0 ] );
 
 						that._addClass( element, "ui-sortable-placeholder",
-								className || that.currentItem[ 0 ].className )
+								class || that.currentItem[ 0 ].class )
 							._removeClass( element, "ui-sortable-helper" );
 
 					if ( nodeName === "tbody" ) {
@@ -16079,7 +16079,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 						element.attr( "src", that.currentItem.attr( "src" ) );
 					}
 
-					if ( !className ) {
+					if ( !class ) {
 						element.css( "visibility", "hidden" );
 					}
 
@@ -16087,11 +16087,11 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 				},
 				update: function( container, p ) {
 
-					// 1. If a className is set as 'placeholder option, we don't force sizes -
+					// 1. If a class is set as 'placeholder option, we don't force sizes -
 					// the class is responsible for that
 					// 2. The option 'forcePlaceholderSize can be enabled to force it even if a
 					// class name is specified
-					if ( className && !o.forcePlaceholderSize ) {
+					if ( class && !o.forcePlaceholderSize ) {
 						return;
 					}
 

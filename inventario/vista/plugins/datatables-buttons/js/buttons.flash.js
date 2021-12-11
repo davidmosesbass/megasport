@@ -66,12 +66,12 @@ var ZeroClipboard_TableTools = {
 			// extend element with a few useful methods
 			thingy.hide = function() { this.style.display = 'none'; };
 			thingy.show = function() { this.style.display = ''; };
-			thingy.addClass = function(name) { this.removeClass(name); this.className += ' ' + name; };
+			thingy.addClass = function(name) { this.removeClass(name); this.class += ' ' + name; };
 			thingy.removeClass = function(name) {
-				this.className = this.className.replace( new RegExp("\\s*" + name + "\\s*"), " ").replace(/^\s+/, '').replace(/\s+$/, '');
+				this.class = this.class.replace( new RegExp("\\s*" + name + "\\s*"), " ").replace(/^\s+/, '').replace(/\s+$/, '');
 			};
 			thingy.hasClass = function(name) {
-				return !!this.className.match( new RegExp("\\s*" + name + "\\s*") );
+				return !!this.class.match( new RegExp("\\s*" + name + "\\s*") );
 			};
 		}
 		return thingy;
@@ -1099,7 +1099,7 @@ DataTable.Api.register( 'buttons.resize()', function () {
 
 // Copy to clipboard
 DataTable.ext.buttons.copyFlash = $.extend( {}, flashButton, {
-	className: 'buttons-copy buttons-flash',
+	class: 'buttons-copy buttons-flash',
 
 	text: function ( dt ) {
 		return dt.i18n( 'buttons.copy', 'Copy' );
@@ -1157,7 +1157,7 @@ DataTable.ext.buttons.copyFlash = $.extend( {}, flashButton, {
 
 // CSV save file
 DataTable.ext.buttons.csvFlash = $.extend( {}, flashButton, {
-	className: 'buttons-csv buttons-flash',
+	class: 'buttons-csv buttons-flash',
 
 	text: function ( dt ) {
 		return dt.i18n( 'buttons.csv', 'CSV' );
@@ -1182,7 +1182,7 @@ DataTable.ext.buttons.csvFlash = $.extend( {}, flashButton, {
 
 // Excel save file - this is really a CSV file using UTF-8 that Excel can read
 DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
-	className: 'buttons-excel buttons-flash',
+	class: 'buttons-excel buttons-flash',
 
 	text: function ( dt ) {
 		return dt.i18n( 'buttons.excel', 'Excel' );
@@ -1406,7 +1406,7 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 
 // PDF export
 DataTable.ext.buttons.pdfFlash = $.extend( {}, flashButton, {
-	className: 'buttons-pdf buttons-flash',
+	class: 'buttons-pdf buttons-flash',
 
 	text: function ( dt ) {
 		return dt.i18n( 'buttons.pdf', 'PDF' );

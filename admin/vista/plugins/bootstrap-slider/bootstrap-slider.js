@@ -448,29 +448,29 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 			} else {
 				/* Create elements needed for slider */
 				this.sliderElem = document.createElement("div");
-				this.sliderElem.className = "slider";
+				this.sliderElem.class = "slider";
 
 				/* Create slider track elements */
 				var sliderTrack = document.createElement("div");
-				sliderTrack.className = "slider-track";
+				sliderTrack.class = "slider-track";
 
 				sliderTrackLow = document.createElement("div");
-				sliderTrackLow.className = "slider-track-low";
+				sliderTrackLow.class = "slider-track-low";
 
 				sliderTrackSelection = document.createElement("div");
-				sliderTrackSelection.className = "slider-selection";
+				sliderTrackSelection.class = "slider-selection";
 
 				sliderTrackHigh = document.createElement("div");
-				sliderTrackHigh.className = "slider-track-high";
+				sliderTrackHigh.class = "slider-track-high";
 
 				sliderMinHandle = document.createElement("div");
-				sliderMinHandle.className = "slider-handle min-slider-handle";
+				sliderMinHandle.class = "slider-handle min-slider-handle";
 				sliderMinHandle.setAttribute('role', 'slider');
 				sliderMinHandle.setAttribute('aria-valuemin', this.options.min);
 				sliderMinHandle.setAttribute('aria-valuemax', this.options.max);
 
 				sliderMaxHandle = document.createElement("div");
-				sliderMaxHandle.className = "slider-handle max-slider-handle";
+				sliderMaxHandle.class = "slider-handle max-slider-handle";
 				sliderMaxHandle.setAttribute('role', 'slider');
 				sliderMaxHandle.setAttribute('aria-valuemin', this.options.min);
 				sliderMaxHandle.setAttribute('aria-valuemax', this.options.max);
@@ -486,7 +486,7 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 					for (var j = 0; j < rangeHighlightsOpts.length; j++) {
 						var rangeHighlightElement = document.createElement("div");
 						var customClassString = rangeHighlightsOpts[j].class || "";
-						rangeHighlightElement.className = "slider-rangeHighlight slider-selection " + customClassString;
+						rangeHighlightElement.class = "slider-rangeHighlight slider-selection " + customClassString;
 						this.rangeHighlightElements.push(rangeHighlightElement);
 						sliderTrack.appendChild(rangeHighlightElement);
 					}
@@ -509,11 +509,11 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 				this.ticks = [];
 				if (Array.isArray(this.options.ticks) && this.options.ticks.length > 0) {
 					this.ticksContainer = document.createElement('div');
-					this.ticksContainer.className = 'slider-tick-container';
+					this.ticksContainer.class = 'slider-tick-container';
 
 					for (i = 0; i < this.options.ticks.length; i++) {
 						var tick = document.createElement('div');
-						tick.className = 'slider-tick';
+						tick.class = 'slider-tick';
 						if (this.options.ticks_tooltip) {
 							var tickListenerReference = this._addTickListener();
 							var enterCallback = tickListenerReference.addMouseEnter(this, tick, i);
@@ -528,19 +528,19 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 						this.ticksContainer.appendChild(tick);
 					}
 
-					sliderTrackSelection.className += " tick-slider-selection";
+					sliderTrackSelection.class += " tick-slider-selection";
 				}
 
 				this.tickLabels = [];
 				if (Array.isArray(this.options.ticks_labels) && this.options.ticks_labels.length > 0) {
 					this.tickLabelContainer = document.createElement('div');
-					this.tickLabelContainer.className = 'slider-tick-label-container';
+					this.tickLabelContainer.class = 'slider-tick-label-container';
 
 					for (i = 0; i < this.options.ticks_labels.length; i++) {
 						var label = document.createElement('div');
 						var noTickPositionsSpecified = this.options.ticks_positions.length === 0;
 						var tickLabelsIndex = this.options.reversed && noTickPositionsSpecified ? this.options.ticks_labels.length - (i + 1) : i;
-						label.className = 'slider-tick-label';
+						label.class = 'slider-tick-label';
 						label.innerHTML = this.options.ticks_labels[tickLabelsIndex];
 
 						this.tickLabels.push(label);
@@ -550,10 +550,10 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 
 				var createAndAppendTooltipSubElements = function createAndAppendTooltipSubElements(tooltipElem) {
 					var arrow = document.createElement("div");
-					arrow.className = "arrow";
+					arrow.class = "arrow";
 
 					var inner = document.createElement("div");
-					inner.className = "tooltip-inner";
+					inner.class = "tooltip-inner";
 
 					tooltipElem.appendChild(arrow);
 					tooltipElem.appendChild(inner);
@@ -561,17 +561,17 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 
 				/* Create tooltip elements */
 				var sliderTooltip = document.createElement("div");
-				sliderTooltip.className = "tooltip tooltip-main";
+				sliderTooltip.class = "tooltip tooltip-main";
 				sliderTooltip.setAttribute('role', 'presentation');
 				createAndAppendTooltipSubElements(sliderTooltip);
 
 				var sliderTooltipMin = document.createElement("div");
-				sliderTooltipMin.className = "tooltip tooltip-min";
+				sliderTooltipMin.class = "tooltip tooltip-min";
 				sliderTooltipMin.setAttribute('role', 'presentation');
 				createAndAppendTooltipSubElements(sliderTooltipMin);
 
 				var sliderTooltipMax = document.createElement("div");
-				sliderTooltipMax.className = "tooltip tooltip-max";
+				sliderTooltipMax.class = "tooltip tooltip-max";
 				sliderTooltipMax.setAttribute('role', 'presentation');
 				createAndAppendTooltipSubElements(sliderTooltipMax);
 
@@ -1090,7 +1090,7 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 
 				//remove the listeners from the ticks and handles if they had their own listeners
 				if (this.options.ticks_tooltip) {
-					var ticks = this.ticksContainer.getElementsByClassName('slider-tick');
+					var ticks = this.ticksContainer.getElementsByclass('slider-tick');
 					for (var i = 0; i < ticks.length; i++) {
 						ticks[i].removeEventListener('mouseenter', this.ticksCallbackMap[i].mouseEnter, false);
 						ticks[i].removeEventListener('mouseleave', this.ticksCallbackMap[i].mouseLeave, false);
@@ -1917,7 +1917,7 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 			},
 			_removeClass: function _removeClass(element, classString) {
 				var classes = classString.split(" ");
-				var newClasses = element.className;
+				var newClasses = element.class;
 
 				for (var i = 0; i < classes.length; i++) {
 					var classTag = classes[i];
@@ -1925,11 +1925,11 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 					newClasses = newClasses.replace(regex, " ");
 				}
 
-				element.className = newClasses.trim();
+				element.class = newClasses.trim();
 			},
 			_addClass: function _addClass(element, classString) {
 				var classes = classString.split(" ");
-				var newClasses = element.className;
+				var newClasses = element.class;
 
 				for (var i = 0; i < classes.length; i++) {
 					var classTag = classes[i];
@@ -1941,7 +1941,7 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 					}
 				}
 
-				element.className = newClasses.trim();
+				element.class = newClasses.trim();
 			},
 			_offsetLeft: function _offsetLeft(obj) {
 				return obj.getBoundingClientRect().left;

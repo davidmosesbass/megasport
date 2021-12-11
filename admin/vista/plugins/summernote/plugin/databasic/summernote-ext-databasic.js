@@ -96,7 +96,7 @@
 
       // create popover
       self.$popover = ui.popover({
-        className: 'ext-databasic-popover',
+        class: 'ext-databasic-popover',
       }).render().appendTo('body');
       var $content = self.$popover.find('.popover-content');
 

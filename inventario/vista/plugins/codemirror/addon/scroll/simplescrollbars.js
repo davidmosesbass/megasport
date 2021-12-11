@@ -18,7 +18,7 @@
     this.pos = 0;
 
     this.node = document.createElement("div");
-    this.node.className = cls + "-" + orientation;
+    this.node.class = cls + "-" + orientation;
     this.inner = this.node.appendChild(document.createElement("div"));
 
     var self = this;

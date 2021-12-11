@@ -180,7 +180,7 @@ $.extend( RowGroup.prototype, {
 	 */
 	_adjustColspan: function ()
 	{
-		$( 'tr.'+this.c.className, this.s.dt.table().body() ).find('td:visible')
+		$( 'tr.'+this.c.class, this.s.dt.table().body() ).find('td:visible')
 			.attr( 'colspan', this._colspan() );
 	},
 
@@ -286,7 +286,7 @@ $.extend( RowGroup.prototype, {
 
 			if ( this.c.startRender ) {
 				display = this.c.startRender.call( this, dt.rows(rows), groupName, level );
-				row = this._rowWrap( display, this.c.startClassName, level );
+				row = this._rowWrap( display, this.c.startclass, level );
 
 				if ( row ) {
 					row.insertBefore( dt.row( rows[0] ).node() );
@@ -295,7 +295,7 @@ $.extend( RowGroup.prototype, {
 
 			if ( this.c.endRender ) {
 				display = this.c.endRender.call( this, dt.rows(rows), groupName, level );
-				row = this._rowWrap( display, this.c.endClassName, level );
+				row = this._rowWrap( display, this.c.endclass, level );
 
 				if ( row ) {
 					row.insertAfter( dt.row( rows[ rows.length-1 ] ).node() );
@@ -312,12 +312,12 @@ $.extend( RowGroup.prototype, {
 	 * Take a rendered value from an end user and make it suitable for display
 	 * as a row, by wrapping it in a row, or detecting that it is a row.
 	 * @param {node|jQuery|string} display Display value
-	 * @param {string} className Class to add to the row
+	 * @param {string} class Class to add to the row
 	 * @param {array} group
 	 * @param {number} group level
 	 * @private
 	 */
-	_rowWrap: function ( display, className, level )
+	_rowWrap: function ( display, class, level )
 	{
 		var row;
 		
@@ -345,8 +345,8 @@ $.extend( RowGroup.prototype, {
 		}
 
 		return row
-			.addClass( this.c.className )
-			.addClass( className )
+			.addClass( this.c.class )
+			.addClass( class )
 			.addClass( 'dtrg-level-'+level );
 	}
 } );
@@ -365,7 +365,7 @@ RowGroup.defaults = {
 	 * end grouping rows.
 	 * @type string
 	 */
-	className: 'dtrg-group',
+	class: 'dtrg-group',
 
 	/**
 	 * Data property from which to read the grouping information
@@ -389,7 +389,7 @@ RowGroup.defaults = {
 	 * Class name to give to the end grouping row
 	 * @type string
 	 */
-	endClassName: 'dtrg-end',
+	endclass: 'dtrg-end',
 
 	/**
 	 * End grouping label function
@@ -401,7 +401,7 @@ RowGroup.defaults = {
 	 * Class name to give to the start grouping row
 	 * @type string
 	 */
-	startClassName: 'dtrg-start',
+	startclass: 'dtrg-start',
 
 	/**
 	 * Start grouping label function

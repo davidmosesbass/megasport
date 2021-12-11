@@ -5,11 +5,9 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="vista/dist/img/foto-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
+      <i class="fas fa-rupee-sign nav-icon text-warning text-lg"></i>
         <div class="info">
-          <a href="#" class="d-block">Registro: Operador</a>
+          <a href="#" class="d-block"><?php echo $_SESSION['usuario'] ?></a>
         </div>
       </div>
 
@@ -45,13 +43,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="crearProveedor.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-address-card nav-icon text-success"></i>
                   <p>Crear Proveedor</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="CalificarPro.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <i class="fas fa-thumbs-up nav-icon text-primary"></i>
                   <p>Calificar Proveedor</p>
                 </a>
               </li>

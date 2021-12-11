@@ -109,7 +109,7 @@
   polyfill();
 
   var MILLISECONDS_MULTIPLIER = 1000;
-  var ClassName = {
+  var class = {
     ACTIVE: 'active',
     LINEAR: 'linear',
     BLOCK: 'dstepper-block',
@@ -123,7 +123,7 @@
   var show = function show(stepperNode, indexStep, options, done) {
     var stepper = stepperNode[customProperty];
 
-    if (stepper._steps[indexStep].classList.contains(ClassName.ACTIVE) || stepper._stepsContents[indexStep].classList.contains(ClassName.ACTIVE)) {
+    if (stepper._steps[indexStep].classList.contains(class.ACTIVE) || stepper._stepsContents[indexStep].classList.contains(class.ACTIVE)) {
       return;
     }
 
@@ -138,11 +138,11 @@
     stepperNode.dispatchEvent(showEvent);
 
     var activeStep = stepper._steps.filter(function (step) {
-      return step.classList.contains(ClassName.ACTIVE);
+      return step.classList.contains(class.ACTIVE);
     });
 
     var activeContent = stepper._stepsContents.filter(function (content) {
-      return content.classList.contains(ClassName.ACTIVE);
+      return content.classList.contains(class.ACTIVE);
     });
 
     if (showEvent.defaultPrevented) {
@@ -150,14 +150,14 @@
     }
 
     if (activeStep.length) {
-      activeStep[0].classList.remove(ClassName.ACTIVE);
+      activeStep[0].classList.remove(class.ACTIVE);
     }
 
     if (activeContent.length) {
-      activeContent[0].classList.remove(ClassName.ACTIVE);
+      activeContent[0].classList.remove(class.ACTIVE);
 
-      if (!stepperNode.classList.contains(ClassName.VERTICAL) && !stepper.options.animation) {
-        activeContent[0].classList.remove(ClassName.BLOCK);
+      if (!stepperNode.classList.contains(class.VERTICAL) && !stepper.options.animation) {
+        activeContent[0].classList.remove(class.BLOCK);
       }
     }
 
@@ -170,15 +170,15 @@
       var trigger = step.querySelector(options.selectors.trigger);
       trigger.setAttribute('aria-selected', 'false'); // if stepper is in linear mode, set disabled attribute on the trigger
 
-      if (stepperNode.classList.contains(ClassName.LINEAR)) {
+      if (stepperNode.classList.contains(class.LINEAR)) {
         trigger.setAttribute('disabled', 'disabled');
       }
     });
-    step.classList.add(ClassName.ACTIVE);
+    step.classList.add(class.ACTIVE);
     var currentTrigger = step.querySelector(options.selectors.trigger);
     currentTrigger.setAttribute('aria-selected', 'true'); // if stepper is in linear mode, remove disabled attribute on current
 
-    if (stepperNode.classList.contains(ClassName.LINEAR)) {
+    if (stepperNode.classList.contains(class.LINEAR)) {
       currentTrigger.removeAttribute('disabled');
     }
   };
@@ -196,26 +196,26 @@
     });
 
     function complete() {
-      content.classList.add(ClassName.BLOCK);
+      content.classList.add(class.BLOCK);
       content.removeEventListener(transitionEndEvent, complete);
       stepperNode.dispatchEvent(shownEvent);
       done();
     }
 
-    if (content.classList.contains(ClassName.FADE)) {
-      content.classList.remove(ClassName.NONE);
+    if (content.classList.contains(class.FADE)) {
+      content.classList.remove(class.NONE);
       var duration = getTransitionDurationFromElement(content);
       content.addEventListener(transitionEndEvent, complete);
 
       if (activeContent.length) {
-        activeContent[0].classList.add(ClassName.NONE);
+        activeContent[0].classList.add(class.NONE);
       }
 
-      content.classList.add(ClassName.ACTIVE);
+      content.classList.add(class.ACTIVE);
       emulateTransitionEnd(content, duration);
     } else {
-      content.classList.add(ClassName.ACTIVE);
-      content.classList.add(ClassName.BLOCK);
+      content.classList.add(class.ACTIVE);
+      content.classList.add(class.BLOCK);
       stepperNode.dispatchEvent(shownEvent);
       done();
     }
@@ -262,8 +262,8 @@
   var detectAnimation = function detectAnimation(contentList, options) {
     if (options.animation) {
       contentList.forEach(function (content) {
-        content.classList.add(ClassName.FADE);
-        content.classList.add(ClassName.NONE);
+        content.classList.add(class.FADE);
+        content.classList.add(class.NONE);
       });
     }
   };
@@ -316,7 +316,7 @@
       this.options.selectors = _extends({}, DEFAULT_OPTIONS.selectors, {}, this.options.selectors);
 
       if (this.options.linear) {
-        this._element.classList.add(ClassName.LINEAR);
+        this._element.classList.add(class.LINEAR);
       }
 
       this._steps = [].slice.call(this._element.querySelectorAll(this.options.selectors.steps));

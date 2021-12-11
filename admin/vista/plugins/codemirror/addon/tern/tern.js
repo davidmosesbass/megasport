@@ -214,11 +214,11 @@
         after = "\"]";
 
       for (var i = 0; i < data.completions.length; ++i) {
-        var completion = data.completions[i], className = typeToIcon(completion.type);
-        if (data.guess) className += " " + cls + "guess";
+        var completion = data.completions[i], class = typeToIcon(completion.type);
+        if (data.guess) class += " " + cls + "guess";
         completions.push({text: completion.name + after,
                           displayText: completion.displayName || completion.name,
-                          className: className,
+                          class: class,
                           data: completion});
       }
 
@@ -232,7 +232,7 @@
         if (content) {
           tooltip = makeTooltip(node.parentNode.getBoundingClientRect().right + window.pageXOffset,
                                 node.getBoundingClientRect().top + window.pageYOffset, content, cm);
-          tooltip.className += " " + cls + "hint-doc";
+          tooltip.class += " " + cls + "hint-doc";
         }
       });
       c(obj);
@@ -580,7 +580,7 @@
 
   function elt(tagname, cls /*, ... elts*/) {
     var e = document.createElement(tagname);
-    if (cls) e.className = cls;
+    if (cls) e.class = cls;
     for (var i = 2; i < arguments.length; ++i) {
       var elt = arguments[i];
       if (typeof elt == "string") elt = document.createTextNode(elt);

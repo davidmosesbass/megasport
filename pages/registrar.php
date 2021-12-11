@@ -41,7 +41,7 @@
 
 						<?php
 					}else{
-						$registro = "INSERT INTO usuario(email_usuario, nombre_usuario, clave_usuario, id_perfilusr, bloqueo_usuario, estado_usuario) values ('$correo','$usuario','$pass',2,0,3)";
+						$registro = "INSERT INTO usuario(email_usuario, nombre_usuario, clave_usuario, id_perfilusr, bloqueo_usuario, estado_usuario) values ('$correo','$usuario','$pass',4,0,3)";
 						mysqli_query($conexion,$registro);
 						?>
 						<div class="alert alert-success" role="alert">

@@ -6,8 +6,10 @@
     if(isset($_SESSION['id_usuario'])==false ){
       header("location: ../pages/iniciarSesion.php");
     }
+    
 ?>
 <head>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Administracion | MegaSport</title>
@@ -112,9 +114,43 @@
           <input type="password" name="password" placeholder="Password">
         </div>
         <div class="col">
-          <button class="btn btn-success">
+          <button class="btn btn-success" name = "addusr" type = "submit">
             Añadir
           </button>
+          <!--  si se confirma añadir usuario se actualiza bd-->
+          <?php if (isset($_POST['addusr'] ) ){
+
+          $usuario = $_POST['nombre'];
+					$correo = $_POST['email'];
+					$pass = $_POST['password'];
+					$pass=md5($pass);
+					
+					$consulta = "SELECT * FROM usuario WHERE email_usuario = '$correo'";
+					$resultado = mysqli_query($conexion,$consulta);
+					$num = mysqli_num_rows($resultado);
+					
+					if($num == 1){
+						?>
+
+						<div class="alert alert-danger" role="alert">
+								 El usuario ya esta registrado
+						</div>
+
+						<?php
+					}else{
+						$registro = "INSERT INTO usuario(email_usuario, nombre_usuario, clave_usuario, id_perfilusr, bloqueo_usuario, estado_usuario) values ('$correo','$usuario','$pass',4,0,3)";
+						mysqli_query($conexion,$registro);
+						?>
+						<div class="alert alert-success" role="alert">
+								 Registrado con exito
+						</div>
+						<?php
+
+					}
+          
+          }  ?>
+          <!--  si se confirma añadir usuario se actualiza bd
+             fin de if (isset($_REQUEST['addusr'] ) ) -->
         </div>
       </div>
     </form>
@@ -133,8 +169,7 @@
   </thead>
   <tbody>
             <?php
-  
-              
+                
               $sql = "SELECT * FROM usuario";
               $resultado = $conexion->query($sql);
               if($resultado->num_rows > 0){
@@ -146,7 +181,11 @@
                            <td> <?php echo $row["email_usuario"] ?> </td>
                            <td> <?php echo $row["id_perfilusr"] ?> </td>
                            <td> <a  href="editarUsuario.php?id=<?php echo $row["id_usuario"]; ?>" class="btn btn-warning" color="black" >Editar</a></td>
-                           <td> <a  href="#" class="btn btn-danger" >Eliminar</a></td>
+                           <td> 
+                           <a  href="Borrarusuario.php?id=<?php echo $row["id_usuario"]; ?>" class="btn btn-danger" name = "Eliminar" type = "submit"  >Eliminar</a>  
+                             <!--  <button class="btn btn-danger" href="Borrarusuario.php?id=<?php echo $row["id_usuario"]; ?>" name = "Eliminar" type = "submit">
+                             Eliminar </button>  -->
+                          </td>
                         </tr> 
                       <?php
                   }
@@ -154,6 +193,8 @@
             ?>
   </tbody>
 </table>
+
+
     </div>
     <!-- /.content -->
     </section>
@@ -165,8 +206,6 @@
 
   ?>
 
- 
-  
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
